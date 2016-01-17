@@ -1,0 +1,1715 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><style>body {
+  width: 45em;
+  border: 1px solid #ddd;
+  outline: 1300px solid #fff;
+  margin: 16px auto;
+}
+
+body .markdown-body
+{
+  padding: 30px;
+}
+
+@font-face {
+  font-family: octicons-anchor;
+  src: url(data:font/woff;charset=utf-8;base64,d09GRgABAAAAAAYcAA0AAAAACjQAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAABGRlRNAAABMAAAABwAAAAca8vGTk9TLzIAAAFMAAAARAAAAFZG1VHVY21hcAAAAZAAAAA+AAABQgAP9AdjdnQgAAAB0AAAAAQAAAAEACICiGdhc3AAAAHUAAAACAAAAAj//wADZ2x5ZgAAAdwAAADRAAABEKyikaNoZWFkAAACsAAAAC0AAAA2AtXoA2hoZWEAAALgAAAAHAAAACQHngNFaG10eAAAAvwAAAAQAAAAEAwAACJsb2NhAAADDAAAAAoAAAAKALIAVG1heHAAAAMYAAAAHwAAACABEAB2bmFtZQAAAzgAAALBAAAFu3I9x/Nwb3N0AAAF/AAAAB0AAAAvaoFvbwAAAAEAAAAAzBdyYwAAAADP2IQvAAAAAM/bz7t4nGNgZGFgnMDAysDB1Ml0hoGBoR9CM75mMGLkYGBgYmBlZsAKAtJcUxgcPsR8iGF2+O/AEMPsznAYKMwIkgMA5REMOXicY2BgYGaAYBkGRgYQsAHyGMF8FgYFIM0ChED+h5j//yEk/3KoSgZGNgYYk4GRCUgwMaACRoZhDwCs7QgGAAAAIgKIAAAAAf//AAJ4nHWMMQrCQBBF/0zWrCCIKUQsTDCL2EXMohYGSSmorScInsRGL2DOYJe0Ntp7BK+gJ1BxF1stZvjz/v8DRghQzEc4kIgKwiAppcA9LtzKLSkdNhKFY3HF4lK69ExKslx7Xa+vPRVS43G98vG1DnkDMIBUgFN0MDXflU8tbaZOUkXUH0+U27RoRpOIyCKjbMCVejwypzJJG4jIwb43rfl6wbwanocrJm9XFYfskuVC5K/TPyczNU7b84CXcbxks1Un6H6tLH9vf2LRnn8Ax7A5WQAAAHicY2BkYGAA4teL1+yI57f5ysDNwgAC529f0kOmWRiYVgEpDgYmEA8AUzEKsQAAAHicY2BkYGB2+O/AEMPCAAJAkpEBFbAAADgKAe0EAAAiAAAAAAQAAAAEAAAAAAAAKgAqACoAiAAAeJxjYGRgYGBhsGFgYgABEMkFhAwM/xn0QAIAD6YBhwB4nI1Ty07cMBS9QwKlQapQW3VXySvEqDCZGbGaHULiIQ1FKgjWMxknMfLEke2A+IJu+wntrt/QbVf9gG75jK577Lg8K1qQPCfnnnt8fX1NRC/pmjrk/zprC+8D7tBy9DHgBXoWfQ44Av8t4Bj4Z8CLtBL9CniJluPXASf0Lm4CXqFX8Q84dOLnMB17N4c7tBo1AS/Qi+hTwBH4rwHHwN8DXqQ30XXAS7QaLwSc0Gn8NuAVWou/gFmnjLrEaEh9GmDdDGgL3B4JsrRPDU2hTOiMSuJUIdKQQayiAth69r6akSSFqIJuA19TrzCIaY8sIoxyrNIrL//pw7A2iMygkX5vDj+G+kuoLdX4GlGK/8Lnlz6/h9MpmoO9rafrz7ILXEHHaAx95s9lsI7AHNMBWEZHULnfAXwG9/ZqdzLI08iuwRloXE8kfhXYAvE23+23DU3t626rbs8/8adv+9DWknsHp3E17oCf+Z48rvEQNZ78paYM38qfk3v/u3l3u3GXN2Dmvmvpf1Srwk3pB/VSsp512bA/GG5i2WJ7wu430yQ5K3nFGiOqgtmSB5pJVSizwaacmUZzZhXLlZTq8qGGFY2YcSkqbth6aW1tRmlaCFs2016m5qn36SbJrqosG4uMV4aP2PHBmB3tjtmgN2izkGQyLWprekbIntJFing32a5rKWCN/SdSoga45EJykyQ7asZvHQ8PTm6cslIpwyeyjbVltNikc2HTR7YKh9LBl9DADC0U/jLcBZDKrMhUBfQBvXRzLtFtjU9eNHKin0x5InTqb8lNpfKv1s1xHzTXRqgKzek/mb7nB8RZTCDhGEX3kK/8Q75AmUM/eLkfA+0Hi908Kx4eNsMgudg5GLdRD7a84npi+YxNr5i5KIbW5izXas7cHXIMAau1OueZhfj+cOcP3P8MNIWLyYOBuxL6DRylJ4cAAAB4nGNgYoAALjDJyIAOWMCiTIxMLDmZedkABtIBygAAAA==) format('woff');
+}
+
+.markdown-body {
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  color: #333;
+  overflow: hidden;
+  font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  word-wrap: break-word;
+}
+
+.markdown-body a {
+  background: transparent;
+}
+
+.markdown-body a:active,
+.markdown-body a:hover {
+  outline: 0;
+}
+
+.markdown-body strong {
+  font-weight: bold;
+}
+
+.markdown-body h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+.markdown-body img {
+  border: 0;
+}
+
+.markdown-body hr {
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  height: 0;
+}
+
+.markdown-body pre {
+  overflow: auto;
+}
+
+.markdown-body code,
+.markdown-body kbd,
+.markdown-body pre {
+  font-family: monospace, monospace;
+  font-size: 1em;
+}
+
+.markdown-body input {
+  color: inherit;
+  font: inherit;
+  margin: 0;
+}
+
+.markdown-body html input[disabled] {
+  cursor: default;
+}
+
+.markdown-body input {
+  line-height: normal;
+}
+
+.markdown-body input[type="checkbox"] {
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 0;
+}
+
+.markdown-body table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.markdown-body td,
+.markdown-body th {
+  padding: 0;
+}
+
+.markdown-body * {
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.markdown-body input {
+  font: 13px/1.4 Helvetica, arial, freesans, clean, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+.markdown-body a {
+  color: #4183c4;
+  text-decoration: none;
+}
+
+.markdown-body a:hover,
+.markdown-body a:focus,
+.markdown-body a:active {
+  text-decoration: underline;
+}
+
+.markdown-body hr {
+  height: 0;
+  margin: 15px 0;
+  overflow: hidden;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.markdown-body hr:before {
+  display: table;
+  content: "";
+}
+
+.markdown-body hr:after {
+  display: table;
+  clear: both;
+  content: "";
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  line-height: 1.1;
+}
+
+.markdown-body h1 {
+  font-size: 30px;
+}
+
+.markdown-body h2 {
+  font-size: 21px;
+}
+
+.markdown-body h3 {
+  font-size: 16px;
+}
+
+.markdown-body h4 {
+  font-size: 14px;
+}
+
+.markdown-body h5 {
+  font-size: 12px;
+}
+
+.markdown-body h6 {
+  font-size: 11px;
+}
+
+.markdown-body blockquote {
+  margin: 0;
+}
+
+.markdown-body ul,
+.markdown-body ol {
+  padding: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body ol ol,
+.markdown-body ul ol {
+  list-style-type: lower-roman;
+}
+
+.markdown-body ul ul ol,
+.markdown-body ul ol ol,
+.markdown-body ol ul ol,
+.markdown-body ol ol ol {
+  list-style-type: lower-alpha;
+}
+
+.markdown-body dd {
+  margin-left: 0;
+}
+
+.markdown-body code {
+  font: 12px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+}
+
+.markdown-body pre {
+  margin-top: 0;
+  margin-bottom: 0;
+  font: 12px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+}
+
+.markdown-body .octicon {
+  font: normal normal 16px octicons-anchor;
+  line-height: 1;
+  display: inline-block;
+  text-decoration: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.markdown-body .octicon-link:before {
+  content: '\f05c';
+}
+
+.markdown-body>*:first-child {
+  margin-top: 0 !important;
+}
+
+.markdown-body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+.markdown-body .anchor {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  display: block;
+  padding-right: 6px;
+  padding-left: 30px;
+  margin-left: -30px;
+}
+
+.markdown-body .anchor:focus {
+  outline: none;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+  position: relative;
+  margin-top: 1em;
+  margin-bottom: 16px;
+  font-weight: bold;
+  line-height: 1.4;
+}
+
+.markdown-body h1 .octicon-link,
+.markdown-body h2 .octicon-link,
+.markdown-body h3 .octicon-link,
+.markdown-body h4 .octicon-link,
+.markdown-body h5 .octicon-link,
+.markdown-body h6 .octicon-link {
+  display: none;
+  color: #000;
+  vertical-align: middle;
+}
+
+.markdown-body h1:hover .anchor,
+.markdown-body h2:hover .anchor,
+.markdown-body h3:hover .anchor,
+.markdown-body h4:hover .anchor,
+.markdown-body h5:hover .anchor,
+.markdown-body h6:hover .anchor {
+  padding-left: 8px;
+  margin-left: -30px;
+  line-height: 1;
+  text-decoration: none;
+}
+
+.markdown-body h1:hover .anchor .octicon-link,
+.markdown-body h2:hover .anchor .octicon-link,
+.markdown-body h3:hover .anchor .octicon-link,
+.markdown-body h4:hover .anchor .octicon-link,
+.markdown-body h5:hover .anchor .octicon-link,
+.markdown-body h6:hover .anchor .octicon-link {
+  display: inline-block;
+}
+
+.markdown-body h1 {
+  padding-bottom: 0.3em;
+  font-size: 2.25em;
+  line-height: 1.2;
+  border-bottom: 1px solid #eee;
+}
+
+.markdown-body h2 {
+  padding-bottom: 0.3em;
+  font-size: 1.75em;
+  line-height: 1.225;
+  border-bottom: 1px solid #eee;
+}
+
+.markdown-body h3 {
+  font-size: 1.5em;
+  line-height: 1.43;
+}
+
+.markdown-body h4 {
+  font-size: 1.25em;
+}
+
+.markdown-body h5 {
+  font-size: 1em;
+}
+
+.markdown-body h6 {
+  font-size: 1em;
+  color: #777;
+}
+
+.markdown-body p,
+.markdown-body blockquote,
+.markdown-body ul,
+.markdown-body ol,
+.markdown-body dl,
+.markdown-body table,
+.markdown-body pre {
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+.markdown-body hr {
+  height: 4px;
+  padding: 0;
+  margin: 16px 0;
+  background-color: #e7e7e7;
+  border: 0 none;
+}
+
+.markdown-body ul,
+.markdown-body ol {
+  padding-left: 2em;
+}
+
+.markdown-body ul ul,
+.markdown-body ul ol,
+.markdown-body ol ol,
+.markdown-body ol ul {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body li>p {
+  margin-top: 16px;
+}
+
+.markdown-body dl {
+  padding: 0;
+}
+
+.markdown-body dl dt {
+  padding: 0;
+  margin-top: 16px;
+  font-size: 1em;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.markdown-body dl dd {
+  padding: 0 16px;
+  margin-bottom: 16px;
+}
+
+.markdown-body blockquote {
+  padding: 0 15px;
+  color: #777;
+  border-left: 4px solid #ddd;
+}
+
+.markdown-body blockquote>:first-child {
+  margin-top: 0;
+}
+
+.markdown-body blockquote>:last-child {
+  margin-bottom: 0;
+}
+
+.markdown-body table {
+  display: block;
+  width: 100%;
+  overflow: auto;
+  word-break: normal;
+  word-break: keep-all;
+}
+
+.markdown-body table th {
+  font-weight: bold;
+}
+
+.markdown-body table th,
+.markdown-body table td {
+  padding: 6px 13px;
+  border: 1px solid #ddd;
+}
+
+.markdown-body table tr {
+  background-color: #fff;
+  border-top: 1px solid #ccc;
+}
+
+.markdown-body table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+.markdown-body img {
+  max-width: 100%;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.markdown-body code {
+  padding: 0;
+  padding-top: 0.2em;
+  padding-bottom: 0.2em;
+  margin: 0;
+  font-size: 85%;
+  background-color: rgba(0,0,0,0.04);
+  border-radius: 3px;
+}
+
+.markdown-body code:before,
+.markdown-body code:after {
+  letter-spacing: -0.2em;
+  content: "\00a0";
+}
+
+.markdown-body pre>code {
+  padding: 0;
+  margin: 0;
+  font-size: 100%;
+  word-break: normal;
+  white-space: pre;
+  background: transparent;
+  border: 0;
+}
+
+.markdown-body .highlight {
+  margin-bottom: 16px;
+}
+
+.markdown-body .highlight pre,
+.markdown-body pre {
+  padding: 16px;
+  overflow: auto;
+  font-size: 85%;
+  line-height: 1.45;
+  background-color: #f7f7f7;
+  border-radius: 3px;
+}
+
+.markdown-body .highlight pre {
+  margin-bottom: 0;
+  word-break: normal;
+}
+
+.markdown-body pre {
+  word-wrap: normal;
+}
+
+.markdown-body pre code {
+  display: inline;
+  max-width: initial;
+  padding: 0;
+  margin: 0;
+  overflow: initial;
+  line-height: inherit;
+  word-wrap: normal;
+  background-color: transparent;
+  border: 0;
+}
+
+.markdown-body pre code:before,
+.markdown-body pre code:after {
+  content: normal;
+}
+
+.markdown-body .highlight {
+  background: #fff;
+}
+
+.markdown-body .highlight .h {
+  color: #333;
+  font-style: normal;
+  font-weight: normal;
+}
+
+.markdown-body .highlight .mf,
+.markdown-body .highlight .mh,
+.markdown-body .highlight .mi,
+.markdown-body .highlight .mo,
+.markdown-body .highlight .il,
+.markdown-body .highlight .m {
+  color: #945277;
+}
+
+.markdown-body .highlight .s,
+.markdown-body .highlight .sb,
+.markdown-body .highlight .sc,
+.markdown-body .highlight .sd,
+.markdown-body .highlight .s2,
+.markdown-body .highlight .se,
+.markdown-body .highlight .sh,
+.markdown-body .highlight .si,
+.markdown-body .highlight .sx,
+.markdown-body .highlight .s1 {
+  color: #df5000;
+}
+
+.markdown-body .highlight .kc,
+.markdown-body .highlight .kd,
+.markdown-body .highlight .kn,
+.markdown-body .highlight .kp,
+.markdown-body .highlight .kr,
+.markdown-body .highlight .kt,
+.markdown-body .highlight .k,
+.markdown-body .highlight .o {
+  font-weight: bold;
+}
+
+.markdown-body .highlight .kt {
+  color: #458;
+}
+
+.markdown-body .highlight .c,
+.markdown-body .highlight .cm,
+.markdown-body .highlight .c1 {
+  color: #998;
+  font-style: italic;
+}
+
+.markdown-body .highlight .cp,
+.markdown-body .highlight .cs,
+.markdown-body .highlight .cp .h {
+  color: #999;
+  font-weight: bold;
+}
+
+.markdown-body .highlight .cs {
+  font-style: italic;
+}
+
+.markdown-body .highlight .n {
+  color: #333;
+}
+
+.markdown-body .highlight .na,
+.markdown-body .highlight .nv,
+.markdown-body .highlight .vc,
+.markdown-body .highlight .vg,
+.markdown-body .highlight .vi {
+  color: #008080;
+}
+
+.markdown-body .highlight .nb {
+  color: #0086B3;
+}
+
+.markdown-body .highlight .nc {
+  color: #458;
+  font-weight: bold;
+}
+
+.markdown-body .highlight .no {
+  color: #094e99;
+}
+
+.markdown-body .highlight .ni {
+  color: #800080;
+}
+
+.markdown-body .highlight .ne {
+  color: #990000;
+  font-weight: bold;
+}
+
+.markdown-body .highlight .nf {
+  color: #945277;
+  font-weight: bold;
+}
+
+.markdown-body .highlight .nn {
+  color: #555;
+}
+
+.markdown-body .highlight .nt {
+  color: #000080;
+}
+
+.markdown-body .highlight .err {
+  color: #a61717;
+  background-color: #e3d2d2;
+}
+
+.markdown-body .highlight .gd {
+  color: #000;
+  background-color: #fdd;
+}
+
+.markdown-body .highlight .gd .x {
+  color: #000;
+  background-color: #faa;
+}
+
+.markdown-body .highlight .ge {
+  font-style: italic;
+}
+
+.markdown-body .highlight .gr {
+  color: #aa0000;
+}
+
+.markdown-body .highlight .gh {
+  color: #999;
+}
+
+.markdown-body .highlight .gi {
+  color: #000;
+  background-color: #dfd;
+}
+
+.markdown-body .highlight .gi .x {
+  color: #000;
+  background-color: #afa;
+}
+
+.markdown-body .highlight .go {
+  color: #888;
+}
+
+.markdown-body .highlight .gp {
+  color: #555;
+}
+
+.markdown-body .highlight .gs {
+  font-weight: bold;
+}
+
+.markdown-body .highlight .gu {
+  color: #800080;
+  font-weight: bold;
+}
+
+.markdown-body .highlight .gt {
+  color: #aa0000;
+}
+
+.markdown-body .highlight .ow {
+  font-weight: bold;
+}
+
+.markdown-body .highlight .w {
+  color: #bbb;
+}
+
+.markdown-body .highlight .sr {
+  color: #017936;
+}
+
+.markdown-body .highlight .ss {
+  color: #8b467f;
+}
+
+.markdown-body .highlight .bp {
+  color: #999;
+}
+
+.markdown-body .highlight .gc {
+  color: #999;
+  background-color: #EAF2F5;
+}
+
+.markdown-body kbd {
+  display: inline-block;
+  padding: 3px 5px;
+  font-size: 11px;
+  line-height: 10px;
+  color: #555;
+  vertical-align: middle;
+  background-color: #fcfcfc;
+  border: solid 1px #ccc;
+  border-bottom-color: #bbb;
+  border-radius: 3px;
+  box-shadow: inset 0 -1px 0 #bbb;
+}
+
+.markdown-body .highlight .pl-coc,
+.markdown-body .highlight .pl-entm,
+.markdown-body .highlight .pl-eoa,
+.markdown-body .highlight .pl-mai .pl-sf,
+.markdown-body .highlight .pl-pdv,
+.markdown-body .highlight .pl-sc,
+.markdown-body .highlight .pl-sr,
+.markdown-body .highlight .pl-v,
+.markdown-body .highlight .pl-vpf {
+  color: #0086b3;
+}
+
+.markdown-body .highlight .pl-eoac,
+.markdown-body .highlight .pl-mdht,
+.markdown-body .highlight .pl-mi1,
+.markdown-body .highlight .pl-mri,
+.markdown-body .highlight .pl-va,
+.markdown-body .highlight .pl-vpu {
+  color: #008080;
+}
+
+.markdown-body .highlight .pl-c,
+.markdown-body .highlight .pl-pdc {
+  color: #b4b7b4;
+  font-style: italic;
+}
+
+.markdown-body .highlight .pl-k,
+.markdown-body .highlight .pl-ko,
+.markdown-body .highlight .pl-kolp,
+.markdown-body .highlight .pl-mc,
+.markdown-body .highlight .pl-mr,
+.markdown-body .highlight .pl-ms,
+.markdown-body .highlight .pl-s,
+.markdown-body .highlight .pl-sok,
+.markdown-body .highlight .pl-st {
+  color: #6e5494;
+}
+
+.markdown-body .highlight .pl-ef,
+.markdown-body .highlight .pl-enf,
+.markdown-body .highlight .pl-enm,
+.markdown-body .highlight .pl-entc,
+.markdown-body .highlight .pl-eoi,
+.markdown-body .highlight .pl-sf,
+.markdown-body .highlight .pl-smc {
+  color: #d12089;
+}
+
+.markdown-body .highlight .pl-ens,
+.markdown-body .highlight .pl-eoai,
+.markdown-body .highlight .pl-kos,
+.markdown-body .highlight .pl-mh .pl-pdh,
+.markdown-body .highlight .pl-mp,
+.markdown-body .highlight .pl-pde,
+.markdown-body .highlight .pl-stp {
+  color: #458;
+}
+
+.markdown-body .highlight .pl-enti {
+  color: #d12089;
+  font-weight: bold;
+}
+
+.markdown-body .highlight .pl-cce,
+.markdown-body .highlight .pl-enc,
+.markdown-body .highlight .pl-kou,
+.markdown-body .highlight .pl-mq {
+  color: #f93;
+}
+
+.markdown-body .highlight .pl-mp1 .pl-sf {
+  color: #458;
+  font-weight: bold;
+}
+
+.markdown-body .highlight .pl-cos,
+.markdown-body .highlight .pl-ent,
+.markdown-body .highlight .pl-md,
+.markdown-body .highlight .pl-mdhf,
+.markdown-body .highlight .pl-ml,
+.markdown-body .highlight .pl-pdc1,
+.markdown-body .highlight .pl-pds,
+.markdown-body .highlight .pl-s1,
+.markdown-body .highlight .pl-scp,
+.markdown-body .highlight .pl-sol {
+  color: #df5000;
+}
+
+.markdown-body .highlight .pl-c1,
+.markdown-body .highlight .pl-cn,
+.markdown-body .highlight .pl-pse,
+.markdown-body .highlight .pl-pse .pl-s2,
+.markdown-body .highlight .pl-vi {
+  color: #a31515;
+}
+
+.markdown-body .highlight .pl-mb,
+.markdown-body .highlight .pl-pdb {
+  color: #df5000;
+  font-weight: bold;
+}
+
+.markdown-body .highlight .pl-mi,
+.markdown-body .highlight .pl-pdi {
+  color: #6e5494;
+  font-style: italic;
+}
+
+.markdown-body .highlight .pl-ms1 {
+  background-color: #f5f5f5;
+}
+
+.markdown-body .highlight .pl-mdh,
+.markdown-body .highlight .pl-mdi {
+  font-weight: bold;
+}
+
+.markdown-body .highlight .pl-mdr {
+  color: #0086b3;
+  font-weight: bold;
+}
+
+.markdown-body .highlight .pl-s2 {
+  color: #333;
+}
+
+.markdown-body .highlight .pl-ii {
+  background-color: #df5000;
+  color: #fff;
+}
+
+.markdown-body .highlight .pl-ib {
+  background-color: #f93;
+}
+
+.markdown-body .highlight .pl-id {
+  background-color: #a31515;
+  color: #fff;
+}
+
+.markdown-body .highlight .pl-iu {
+  background-color: #b4b7b4;
+}
+
+.markdown-body .highlight .pl-mo {
+  color: #969896;
+}
+
+.markdown-body .task-list-item {
+  list-style-type: none;
+}
+
+.markdown-body .task-list-item+.task-list-item {
+  margin-top: 3px;
+}
+
+.markdown-body .task-list-item input {
+  float: left;
+  margin: 0.3em 0 0.25em -1.6em;
+  vertical-align: middle;
+}</style><title>所有知识汇总</title></head><body><article class="markdown-body"><h2>
+<a id="user-content-markdown认识与入门" class="anchor" href="#markdown%E8%AE%A4%E8%AF%86%E4%B8%8E%E5%85%A5%E9%97%A8" aria-hidden="true"><span class="octicon octicon-link"></span></a>markdown认识与入门</h2>
+
+<p><a href="http://sspai.com/25137">markdown认识与入门-少数派报告</a>
+<a href="http://www.appinn.com/markdown/#html">markdown中文语法文档</a>
+<a href="http://www.jianshu.com/p/1e402922ee32/">markdown文档-简书</a></p>
+
+<h2>
+<a id="user-content-html-meta标签中的http-equiv的用法" class="anchor" href="#html-meta%E6%A0%87%E7%AD%BE%E4%B8%AD%E7%9A%84http-equiv%E7%9A%84%E7%94%A8%E6%B3%95" aria-hidden="true"><span class="octicon octicon-link"></span></a>HTML meta标签中的http-equiv的用法</h2>
+
+<p>http-equiv顾名思义，相当于http的文件头作用，它可以向浏览器传回一些有用的信息，以帮助正确和精确显示网页内容，与之对应的属性值为content，content中的内容其实就是各个参数的变量值。简单来说http-equiv是”键“，content是”值“。</p>
+
+<blockquote>
+<p>meta标签的http-equiv属性语法格式是：&lt;meta http-equiv="参数" content="参数变量值"&gt;</p>
+</blockquote>
+
+<p>http-equiv主要参数及其详细信息见链接<a href="http://kinglyhum.iteye.com/blog/827807">ITeye</a>
+这个更详细<a href="http://segmentfault.com/a/1190000004279791">SegmentFault</a>
+还有一个<a href="http://caibaojian.com/mobile-knowledge.html">前端开发博客</a></p>
+
+<h2>
+<a id="user-content-行内元素有哪些块级元素有哪些空void元素有哪些" class="anchor" href="#%E8%A1%8C%E5%86%85%E5%85%83%E7%B4%A0%E6%9C%89%E5%93%AA%E4%BA%9B%E5%9D%97%E7%BA%A7%E5%85%83%E7%B4%A0%E6%9C%89%E5%93%AA%E4%BA%9B%E7%A9%BAvoid%E5%85%83%E7%B4%A0%E6%9C%89%E5%93%AA%E4%BA%9B" aria-hidden="true"><span class="octicon octicon-link"></span></a>行内元素有哪些？块级元素有哪些？空（void）元素有哪些？</h2>
+
+<p>首先：css规范规定，每个元素都有display属性，确定该元素的类型，每个元素都有默认的display值，如div的display默认值为“block”，则为“块级”元素；span默认display属性值为“inline”，是“行内”元素。</p>
+
+<ol>
+<li>行内元素有：a b span img input select strong （强调的语气）</li>
+<li>块级元素有：div ul ol li dl dt dd h1 p</li>
+<li>常见的空元素：br hr img input link meta
+鲜为人知的是：area base col command embed keygen param source track wbr</li>
+</ol>
+
+<h2>
+<a id="user-content-页面导入样式时使用link和import有什么区别" class="anchor" href="#%E9%A1%B5%E9%9D%A2%E5%AF%BC%E5%85%A5%E6%A0%B7%E5%BC%8F%E6%97%B6%E4%BD%BF%E7%94%A8link%E5%92%8Cimport%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB" aria-hidden="true"><span class="octicon octicon-link"></span></a>页面导入样式时，使用link和@import有什么区别？</h2>
+
+<ol>
+<li>link属于XHTML标签，除了加载css外，还能用于定义RSS，定义rel连接属性等作用；而@import是css提供的，只能用于加载css；</li>
+<li>页面被加载时，link会同时被加载，而@import引用的css会等到页面被加载完在加载；</li>
+<li>
+<p>import是css2.1提出的，只能在IE5以上才能被识别，而link是XHTML标签，无兼容问题；</p>
+
+<h1>
+<a id="user-content-介绍一下你对浏览器内核的理解" class="anchor" href="#%E4%BB%8B%E7%BB%8D%E4%B8%80%E4%B8%8B%E4%BD%A0%E5%AF%B9%E6%B5%8F%E8%A7%88%E5%99%A8%E5%86%85%E6%A0%B8%E7%9A%84%E7%90%86%E8%A7%A3" aria-hidden="true"><span class="octicon octicon-link"></span></a>介绍一下你对浏览器内核的理解</h1>
+
+<p>主要分成两部分：渲染引擎（layout engineer或Rendering engine）和JS引擎。</p>
+</li>
+</ol>
+
+<ul>
+<li>渲染引擎：负责取得网页的内容（HTML、XML、图像等等）、整理讯息（例如加入css等），以及计算网页的显示方式，然后会输出至显示器或打印机。浏览器的内核的不同对于网页的语法解释会有不同，所以渲染的效果也不相同。所有网页浏览器、电子邮件客户端以及其他需要编辑、显示网络内容的应用程序都需要内核。</li>
+<li>JS引擎：解析和执行JavaScript来实现网页的动态效果。</li>
+</ul>
+
+<p>最开始渲染引擎和JS引擎赢没有区分的很明确，后来JS引擎越来越独立，内核就倾向于只指渲染引擎。</p>
+
+<h2>
+<a id="user-content-常见的浏览器内核有哪些" class="anchor" href="#%E5%B8%B8%E8%A7%81%E7%9A%84%E6%B5%8F%E8%A7%88%E5%99%A8%E5%86%85%E6%A0%B8%E6%9C%89%E5%93%AA%E4%BA%9B" aria-hidden="true"><span class="octicon octicon-link"></span></a>常见的浏览器内核有哪些？</h2>
+
+<p>Trident内核：IE，MaxThon，TT，The World,360,搜狗浏览器等等。[又称MSHTML]
+Gecko内核：Netscape6及以上版本，FF，MozillaSuite/seaMonkey等等
+Presto内核：Opera7及以上  [Opera内核原为：Presto，现为：Blink；]
+Weblit内核：Safari，Chrome等。    [Chrome的：Blink（Webkitd 分支）]</p>
+
+<h2>
+<a id="user-content-html5有哪些新特征移除了哪些元素如何处理html5新标签浏览器兼容问题如何去人html和html5" class="anchor" href="#html5%E6%9C%89%E5%93%AA%E4%BA%9B%E6%96%B0%E7%89%B9%E5%BE%81%E7%A7%BB%E9%99%A4%E4%BA%86%E5%93%AA%E4%BA%9B%E5%85%83%E7%B4%A0%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86html5%E6%96%B0%E6%A0%87%E7%AD%BE%E6%B5%8F%E8%A7%88%E5%99%A8%E5%85%BC%E5%AE%B9%E9%97%AE%E9%A2%98%E5%A6%82%E4%BD%95%E5%8E%BB%E4%BA%BAhtml%E5%92%8Chtml5" aria-hidden="true"><span class="octicon octicon-link"></span></a>HTML5有哪些新特征、移除了哪些元素？如何处理HTML5新标签浏览器兼容问题？如何去人HTML和HTML5？</h2>
+
+<ul>
+<li>HTML5现在已经不是<a href="http://baike.baidu.com/link?url=jZQ9pFL_JQzhUMxlAuU53iDpFfSt-p0QxMEhRpzu8enrSGL1qGTlWmQYa3SgmHqQj84Tx2-CIo-1JPzPS34N0dhoh4m-CIaF8doAFLEw9-eYO4CEB58n9WhpijnXDI5O3jFQHobTegKREpDizZZRlq">SGML（Standard Generalized Markup language标准通用标记语言）</a>的子集,主要是关于图像，位置，储存，多功能任务等功能的增加。
+
+<ul>
+<li>绘画canvas；</li>
+<li>用于媒介回放的video和audio元素；</li>
+<li>本地离线存储localStorage长期存储数据，浏览器关闭后数据不丢失；</li>
+<li>sessionStorage的数据在浏览器关闭后自动删除</li>
+<li>语义化更好的内容元素，比如article、footer、header、nav、section；</li>
+<li>表单空间，calendar、date、time、email、url、search；</li>
+<li>新的技术webworker，websockt，Geolocation；</li>
+</ul>
+</li>
+<li>移除的元素：
+
+<ul>
+<li>纯表现的元素：basefont，big，center，font，s，strike，tt，u；</li>
+<li>对可用性产生负面影响的元素：frame，frameset，noframes；</li>
+</ul>
+</li>
+<li>支持HTML5的新标签：
+
+<ul>
+<li>IE8/IE7/IE6支持通过document.createElement方法产生的标签，</li>
+<li>可以利用这一特性让这些浏览器支持HTML5新标签；</li>
+<li>浏览器支持新标签后，还需要添加标签默认的样式；</li>
+<li>当然最好的方式是直接使用成熟的框架、使用最多的事html5shim框架
+&lt;!--[if lt IE 9]&gt;</li>
+</ul>
+</li>
+</ul>
+
+<h2>
+<a id="user-content-简述一下你对html语义化的理解" class="anchor" href="#%E7%AE%80%E8%BF%B0%E4%B8%80%E4%B8%8B%E4%BD%A0%E5%AF%B9html%E8%AF%AD%E4%B9%89%E5%8C%96%E7%9A%84%E7%90%86%E8%A7%A3" aria-hidden="true"><span class="octicon octicon-link"></span></a>简述一下你对HTML语义化的理解？</h2>
+
+<ul>
+<li>用正确的标签做正确的事。</li>
+<li>html语义化让页面的内容结构化，结构更清晰，便于对浏览器、搜索引擎解析；</li>
+<li>即使在没有样式css的情况下也以一种文档格式显示，并且内容是容易阅读的；</li>
+<li>搜索引擎的爬虫也依赖于HMTL标记来确定上下文和各个关键字的权重，利于SEO</li>
+<li>使读源代码的人对网站更容易将网站分块，便于阅读维护理解；</li>
+</ul>
+
+<h2>
+<a id="user-content-请描述下cookiesessionstorage和localstorage的区别" class="anchor" href="#%E8%AF%B7%E6%8F%8F%E8%BF%B0%E4%B8%8Bcookiesessionstorage%E5%92%8Clocalstorage%E7%9A%84%E5%8C%BA%E5%88%AB" aria-hidden="true"><span class="octicon octicon-link"></span></a>请描述下cookie、sessionStorage和localStorage的区别</h2>
+
+<ul>
+<li>cookie是网站为了标示用户身份而存储在用户本地终端上的数据（通常经过加密）；</li>
+<li>cookie数据始终在同源的http请求中携带（即使不需要），会在浏览器和服务器间来回传递；</li>
+<li>sessionStorage和localStorage不会自动把数据发给服务器，仅在本地保存；</li>
+<li>存储大小：
+
+<ul>
+<li>cookie数据大小不能超过4k（不同浏览器之间有区别）</li>
+<li>sessionStorage和localStorage虽然也有大小的限制，但比cookie大得多，可以达到5M或者更大；</li>
+</ul>
+</li>
+<li>有效时间：
+
+<ul>
+<li>localStorage：存储持久诗句，浏览器关闭后数据不丢失，除非主动删除数据；</li>
+<li>sessionStorage：数据在当前浏览器窗口关闭后自动删除；</li>
+<li>cookie：设置的cookie过期时间之前一直有效，即使窗口或浏览器关闭；</li>
+</ul>
+</li>
+</ul>
+
+<h2>
+<a id="user-content-iframe有哪些缺点" class="anchor" href="#iframe%E6%9C%89%E5%93%AA%E4%BA%9B%E7%BC%BA%E7%82%B9" aria-hidden="true"><span class="octicon octicon-link"></span></a>iframe有哪些缺点</h2>
+
+<ul>
+<li>iframe会阻塞主页面的Onload事件；</li>
+<li>搜索引擎的检索程序无法解读这种页面，不利于SEO；</li>
+<li>iframe和主页共享连接池，而浏览器对相同于的连接有限制，所以会影响页面的并行加载；</li>
+<li>使用iframe之前需要考虑这两个缺点。如果需要使用iframe最好是通过
+&gt;javascript动态给iframe添加src属性值</li>
+</ul>
+
+<p>这样可以绕开以上两个问题。</p>
+
+<h2>
+<a id="user-content-请描述一下cookiesessionstorage和localstorage的区别" class="anchor" href="#%E8%AF%B7%E6%8F%8F%E8%BF%B0%E4%B8%80%E4%B8%8Bcookiesessionstorage%E5%92%8Clocalstorage%E7%9A%84%E5%8C%BA%E5%88%AB" aria-hidden="true"><span class="octicon octicon-link"></span></a>请描述一下cookie，sessionStorage和localStorage的区别</h2>
+
+<ul>
+<li>cookie在浏览器和服务器之间来回传递。sessionStorage和localStorage不会；</li>
+<li>sessionStorage和localStorage的存储空间更大；</li>
+<li>sessionStorage和localStorage有更多丰富易用的接口；</li>
+<li>sessionStorage和localStorage各自鼓励的存储空间；</li>
+</ul>
+
+<h2>
+<a id="user-content-css选择符有哪些哪些属性可以继承优先级算法如何计算css3新增的伪类有哪些" class="anchor" href="#css%E9%80%89%E6%8B%A9%E7%AC%A6%E6%9C%89%E5%93%AA%E4%BA%9B%E5%93%AA%E4%BA%9B%E5%B1%9E%E6%80%A7%E5%8F%AF%E4%BB%A5%E7%BB%A7%E6%89%BF%E4%BC%98%E5%85%88%E7%BA%A7%E7%AE%97%E6%B3%95%E5%A6%82%E4%BD%95%E8%AE%A1%E7%AE%97css3%E6%96%B0%E5%A2%9E%E7%9A%84%E4%BC%AA%E7%B1%BB%E6%9C%89%E5%93%AA%E4%BA%9B" aria-hidden="true"><span class="octicon octicon-link"></span></a>css选择符有哪些？哪些属性可以继承？优先级算法如何计算？css3新增的伪类有哪些？</h2>
+
+<ul>
+<li>
+
+<ol>
+<li>id选择器（#myid）</li>
+<li>类选择器（.myclassname)</li>
+<li>标签选择器（div，h1）</li>
+<li>相邻选择器（h1 + p)</li>
+<li>子选择器（ul &gt; li）</li>
+<li>后代选择器（li a）</li>
+<li>通配符选择器（*）</li>
+<li>属性选择器（a[rel="external"]）</li>
+<li>伪类选择器（a:hover）</li>
+</ol>
+</li>
+<li>可继承的样式：font-size font-family color;</li>
+<li>不可继承样式：border padding margin width height;</li>
+<li>优先级就近原则，同权重情况下样式定义最近者为准；</li>
+<li>载入样式以最后载入的定位为准</li>
+</ul>
+
+<h2>
+<a id="user-content-css3新增伪类举例" class="anchor" href="#css3%E6%96%B0%E5%A2%9E%E4%BC%AA%E7%B1%BB%E4%B8%BE%E4%BE%8B" aria-hidden="true"><span class="octicon octicon-link"></span></a>css3新增伪类举例</h2>
+
+<p>详情访问<a href="http://www.cnblogs.com/jscode/archive/2012/07/30/2615748.html">cnblogs</a></p>
+
+<ul>
+<li>属性选择器
+
+<ul>
+<li>E[foo^="bar"]:匹配foo属性值以"bar"<code>开始</code>的E元素</li>
+<li>E[foo$="bar"]:匹配foo属性值以"bar"<code>结束</code>的E元素</li>
+<li>E[foo*="bar"]:匹配foo属性值以"bar"的E元素</li>
+</ul>
+</li>
+<li>结构伪类选择器
+
+<ul>
+<li>E:root:匹配E所在文档的根元素</li>
+<li>E:nth-child(n):匹配元素类型为E且是父元素的第n个子元素</li>
+<li>E:nth-last-child(n):匹配元素类型为E且是父元素的倒数第n个子元素（与上一项顺序相反）</li>
+<li>E:nth-of-type(n):匹配父元素的第n个类型为E的子元素</li>
+<li>E:nth-last-of-type(n):匹配父元素的倒数第n个类型为E的子元素（与上一项顺序相反）</li>
+<li>E:fist-of-type:匹配父元素的第一个类型为E的子元素</li>
+<li>E:last-child:匹配元素类型为E且是父元素的最后一个子元素</li>
+<li>E:last-of-type:匹配父元素的最后一个类型为E的子元素</li>
+<li>E:only-child:匹配元素类型为E且是父元素中唯一的子元素</li>
+<li>E:only-of-type:匹配父元素中唯一子元素是E的子元素</li>
+<li>E:empty:匹配不包含子节点(包括文本)的E元素</li>
+</ul>
+</li>
+<li>UI元素状态伪类选择器
+
+<ul>
+<li>E:enabled:选择所有可用的E元素</li>
+<li>E:disabled:选择所有不可用的E元素</li>
+<li>E:checked:选择所有选中的E元素（主要用于checkbox和radio-button）</li>
+</ul>
+</li>
+</ul>
+
+<h2>
+<a id="user-content-css3有哪些新特征" class="anchor" href="#css3%E6%9C%89%E5%93%AA%E4%BA%9B%E6%96%B0%E7%89%B9%E5%BE%81" aria-hidden="true"><span class="octicon octicon-link"></span></a>css3有哪些新特征</h2>
+
+<blockquote>
+<p>CSS3实现圆角（border-radius:8px），
+  阴影（box-shadow:10px），
+  对文字加特效（text-shadow、），
+  线性渐变（gradient），
+  旋转（transform）
+  transform:rotate(9deg) scale(0.85,0.90) translate(0px,-30px) skew(-9deg,0deg);//旋转,缩放,定位,倾斜
+  增加了更多的CSS选择器  多背景 rgba</p>
+</blockquote>
+
+<h2>
+<a id="user-content-常见的浏览器兼容性问题" class="anchor" href="#%E5%B8%B8%E8%A7%81%E7%9A%84%E6%B5%8F%E8%A7%88%E5%99%A8%E5%85%BC%E5%AE%B9%E6%80%A7%E9%97%AE%E9%A2%98" aria-hidden="true"><span class="octicon octicon-link"></span></a>常见的浏览器兼容性问题</h2>
+
+<h2>
+<a id="user-content-哪些操作会造成内存泄露" class="anchor" href="#%E5%93%AA%E4%BA%9B%E6%93%8D%E4%BD%9C%E4%BC%9A%E9%80%A0%E6%88%90%E5%86%85%E5%AD%98%E6%B3%84%E9%9C%B2" aria-hidden="true"><span class="octicon octicon-link"></span></a>哪些操作会造成内存泄露</h2>
+
+<p>内存泄露指<code>任何对象在您不再拥有或需要它之后仍然存在</code>
+垃圾回收器定期扫描对象，并计算引用了每个对象的其他对象的数量。如果一个对象的引用数量为0（没有其他对象引用过该对象），或对该对象的唯一引用是循环的，那么该对象的内存即可回收。</p>
+
+<p>setTimeout的第一个参数使用字符串而非函数的话，会引发内存泄露。
+闭包、控制台日志、循环（在两个对象彼此引用且彼此保留是，就会产生一个循环）</p>
+
+<h2>
+<a id="user-content-数组的那几个常用方法" class="anchor" href="#%E6%95%B0%E7%BB%84%E7%9A%84%E9%82%A3%E5%87%A0%E4%B8%AA%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95" aria-hidden="true"><span class="octicon octicon-link"></span></a>数组的那几个常用方法</h2>
+
+<ul>
+<li>splice：【粘接】<code>数组操作的终极神器，方法向/从数组中添加/删除项目，然后返回被删除的项目</code>
+
+<ul>
+<li>语法：<code>arrayObject.splice(index,howmany,item1……itemX)</code>
+</li>
+<li>返回值：包含被删除项目的新数组，如果有的话；</li>
+</ul>
+</li>
+<li>slice：【切片】<code>可以从已有的数组中返回选定的元素；</code>
+
+<ul>
+<li>语法：<code>arrayObject.slice(start,end)</code>
+</li>
+<li>返回值：返回一个新的数组，包含从start到end（不包括该元素）的arrayObject中的元素</li>
+</ul>
+</li>
+<li>split：【分裂，分开】<code>是字符串对象的方法（不是数组对象的方法）</code>
+
+<ul>
+<li>语法：<code>stringObject.split(separator,howmany);</code>
+</li>
+<li>返回值：一个字符串数组。该数组是通过在separator指定的边界处将字符串stringObject分割成子串创建的。返回的数组不包括separator自身。但是如果separator是包含表达式的正则表达式，那么返回的数组中包括与这些子表达式匹配的字符串（但不包括与整个正则表达式匹配的文本）</li>
+</ul>
+</li>
+</ul>
+
+<h2>
+<a id="user-content-javascript中关于正则的方法" class="anchor" href="#javascript%E4%B8%AD%E5%85%B3%E4%BA%8E%E6%AD%A3%E5%88%99%E7%9A%84%E6%96%B9%E6%B3%95" aria-hidden="true"><span class="octicon octicon-link"></span></a>JavaScript中关于正则的方法</h2>
+
+<ul>
+<li>test()
+
+<ul>
+<li>定义和用法：test()方法用于检测一个字符串是否匹配某个模式；</li>
+<li>语法：<code>RegExpObject.test(string);</code>
+</li>
+<li>返回值：如果字符串string中含有与RegExpObjcet匹配的文本，则返回true，否则返回false；</li>
+</ul>
+</li>
+<li>exec()
+
+<ul>
+<li>定义和用法：exec()方法用于检索字符串中的正则表达式的匹配；</li>
+<li>语法：<code>RegExpObject.exec(string);</code>
+</li>
+<li>返回值：返回一个数组，其中存放匹配的结果。如果未找到匹配，则返回值为null；</li>
+</ul>
+</li>
+<li>match()
+
+<ul>
+<li>定义和用法：match()方法可在字符串内检索指定的值，或找到一个或多个正则表达式的匹配。该方法类似indexOf()和lastIndexOf(),但它返回指定的值，而不是字符串的位置；</li>
+<li>语法：<code>stringObject.match(searchvalue);stringObject.match(regexp);</code>
+</li>
+<li>返回值：存放匹配结果的数组。该数组的内容依赖于regexp是否具有全局标志g；</li>
+</ul>
+</li>
+<li>replace()
+
+<ul>
+<li>定义和用法：replace()方法用于在字符串中用一些字符替换另一些字符，或替换一个与正则表达式匹配的字符串；</li>
+<li>语法：<code>stringObject(regexp/substr,replacement);</code>
+</li>
+<li>返回值：一个新的字符串，是用replacement替换了regexp的第一次匹配或所有匹配之后得到的；</li>
+</ul>
+</li>
+<li>search()
+
+<ul>
+<li>定义和用法：search()方法用于检索字符串中指定的子字符串，或检索与正则表达式向匹配的子字符串；</li>
+<li>语法：<code>stringObject.search(regexp);</code>
+</li>
+<li>返回值：stringObject中第一个与regexp相匹配的字符串的其实位置。如果没有，返回-1；</li>
+</ul>
+</li>
+<li>split()
+
+<ul>
+<li>定义和用法：</li>
+<li>语法：</li>
+<li>返回值：</li>
+</ul>
+</li>
+<li>global()
+
+<ul>
+<li>定义和用法：</li>
+<li>语法：</li>
+<li>返回值：</li>
+</ul>
+</li>
+<li>source()
+
+<ul>
+<li>定义和用法：</li>
+<li>语法：</li>
+<li>返回值：</li>
+</ul>
+</li>
+</ul>
+
+<h2>
+<a id="user-content-当你在浏览器地址栏输入一个url后回车将会发生的事情" class="anchor" href="#%E5%BD%93%E4%BD%A0%E5%9C%A8%E6%B5%8F%E8%A7%88%E5%99%A8%E5%9C%B0%E5%9D%80%E6%A0%8F%E8%BE%93%E5%85%A5%E4%B8%80%E4%B8%AAurl%E5%90%8E%E5%9B%9E%E8%BD%A6%E5%B0%86%E4%BC%9A%E5%8F%91%E7%94%9F%E7%9A%84%E4%BA%8B%E6%83%85" aria-hidden="true"><span class="octicon octicon-link"></span></a>当你在浏览器地址栏输入一个URL后回车，将会发生的事情</h2>
+
+<h2>
+<a id="user-content-事件委托的缺点" class="anchor" href="#%E4%BA%8B%E4%BB%B6%E5%A7%94%E6%89%98%E7%9A%84%E7%BC%BA%E7%82%B9" aria-hidden="true"><span class="octicon octicon-link"></span></a>事件委托的缺点</h2>
+
+<blockquote>
+<p>不是所有的事件都能冒泡：blur、focus、load、unload。但blur和focus支持事件捕获；
+mousemove事件触发频繁，不适合用事件委托；</p>
+</blockquote>
+
+<h2>
+<a id="user-content-javascript继承的方法" class="anchor" href="#javascript%E7%BB%A7%E6%89%BF%E7%9A%84%E6%96%B9%E6%B3%95" aria-hidden="true"><span class="octicon octicon-link"></span></a>JavaScript继承的方法</h2>
+
+<ol>
+<li>
+<p>原形链继承</p>
+
+<ul>
+<li>child.prototype = new parent();</li>
+<li>优点：从instanceof关键字来看，实例既是父类的实例，又是子类的实例，看起来似乎是最纯粹的继承；</li>
+<li>缺点：子类区别于父类的属性和方法，必须在sub.prototype = new base();这样的语句之后分别执行，无法被包装到sub这个构造器里面去。例如sub.prototype.name = "sub";无法实现多重继承；</li>
+</ul>
+</li>
+<li>
+<p>构造继承：</p>
+
+<ul>
+<li>&gt;var sub = function(){
+//这不能使用this.name之类的
+base.call(this);
+this.name = "sub";
+//可以使用了
+}</li>
+<li>优点：可以实现多重继承，可以把子类特有的属性设置放在构造器内部；</li>
+<li>缺点：使用instanceof发现，对象不是父类的实例；</li>
+</ul>
+</li>
+<li>实例继承
+
+<ul>
+<li>&gt;var sub = function(){
+var instance = new base(); 
+instance.name = "sub";
+return instance;
+}</li>
+<li>优点：是父类的对象，并且使用new构造对象和不使用new构造对象，都可以获得相同的效果；</li>
+<li>缺点：生成的对象实质仅仅是父类的实例，并非子类的对象；不支持多继承；</li>
+</ul>
+</li>
+<li>拷贝继承
+
+<ul>
+<li>&gt;var sub = function(){
+var base = new base();<br>
+for(var i in base)
+    sub.prototype[i] = base[i];
+sub.prototype["name"] = "sub";
+}</li>
+<li>优点：支持多继承</li>
+<li>缺点：效率较低，无法获取父类不可枚举的方法；</li>
+</ul>
+</li>
+</ol>
+
+<h2>
+<a id="user-content-instanceof的使用方法" class="anchor" href="#instanceof%E7%9A%84%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95" aria-hidden="true"><span class="octicon octicon-link"></span></a>instanceof的使用方法</h2>
+
+<h2>
+<a id="user-content-关于浮动" class="anchor" href="#%E5%85%B3%E4%BA%8E%E6%B5%AE%E5%8A%A8" aria-hidden="true"><span class="octicon octicon-link"></span></a>关于浮动</h2>
+
+<h4>
+<a id="user-content-什么是浮动" class="anchor" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E6%B5%AE%E5%8A%A8" aria-hidden="true"><span class="octicon octicon-link"></span></a>什么是浮动</h4>
+
+<p>浮动的框可以左右移动，直到它的外边缘碰到包含框或另一个浮动框的边缘。因为浮动框不在普通的文档流中，所以文档的普通流中的块框表现得就像浮动框不存在一样。（《精通CSS》P49）。在这种情况下容器的高度不能自动伸长以适应内容的高度，使得内容溢出到容器外面而影响（甚至破坏）布局的现象。这个现象叫浮动溢出，为了防止这个现象的出现而进行的CSS处理，就叫CSS清除浮动。</p>
+
+<blockquote>
+<p>注：虽然浮动脱离文档流，但是文本内容会受到浮动的影响。这也是浮动设计的初衷</p>
+</blockquote>
+
+<h4>
+<a id="user-content-清除浮动的技巧" class="anchor" href="#%E6%B8%85%E9%99%A4%E6%B5%AE%E5%8A%A8%E7%9A%84%E6%8A%80%E5%B7%A7" aria-hidden="true"><span class="octicon octicon-link"></span></a>清除浮动的技巧</h4>
+
+<p>要想阻止行框围绕在浮动框的外边，需要对包含这些行框的元素应用clear属性。clear属性的值可以使left、right、both或none，它表示这个元素应该cfloat向哪边的元素。
+里边有各种方法<a href="http://www.cnblogs.com/ForEvErNoME/p/3383539.html">cnblogs</a>
+写下一个最常用的方法，在要清除的元素的after伪元素上加上clear属性，这样就不用添加额外的元素了（IE6不支持）。</p>
+
+<pre><code>《精通CSS》P52
+.clear:after{
+    content:".";
+    height:0;
+    visibility:hidden;
+    display:block;
+    clear:both;
+}
+</code></pre>
+
+<h2>
+<a id="user-content-获取位置的几个方法height" class="anchor" href="#%E8%8E%B7%E5%8F%96%E4%BD%8D%E7%BD%AE%E7%9A%84%E5%87%A0%E4%B8%AA%E6%96%B9%E6%B3%95height" aria-hidden="true"><span class="octicon octicon-link"></span></a>获取位置的几个方法（height）</h2>
+
+<h2>
+<a id="user-content-css实现水平垂直居中" class="anchor" href="#css%E5%AE%9E%E7%8E%B0%E6%B0%B4%E5%B9%B3%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%AD" aria-hidden="true"><span class="octicon octicon-link"></span></a>CSS实现水平垂直居中</h2>
+
+<p>方法1：</p>
+
+<pre><code>.parent{
+    width:800px;
+    height:500px;
+    border:2px solid #000;
+    position:relative;
+}
+.child{
+    width:200px;
+    height:200px;
+    margin: auto;
+    position:absolute;
+    top:0; left:0; bottom:0; right:0;
+    background-color:red;
+}
+</code></pre>
+
+<p>方法2：</p>
+
+<pre><code>.parent{
+    width:800px;
+    height:500px;
+    border:2px solid #000;
+    display:table-cell;
+    vertical-align:middle;
+    text-align:center;
+}
+.child{
+    width:200px;
+    height:200px;
+    background-color:red;
+    display:inline-block;
+}
+</code></pre>
+
+<p>方法3：</p>
+
+<pre><code>.parent{
+    width:800px;
+    height:500px;
+    border:2px solid #000;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+.child{
+    width:200px;
+    height:200px;
+    background-color:red;
+}
+</code></pre>
+
+<p>方法4：</p>
+
+<pre><code>.parent{
+    width:800px;
+    height:500px;
+    border:2px solid #000;
+    position:relative;
+}
+.child{
+    width:200px;
+    height:200px;
+    background-color:red;
+    margin:auto;
+    position:absolute;
+    /*设定水平和垂直偏移父元素的50%，再根据知己长度将子元素上左挪回一半大小*/
+    left:50%;
+    top:50%;
+    margin-left: -100px;
+    margin-top:-100px;
+}
+</code></pre>
+
+<h2>
+<a id="user-content-常用http状态码" class="anchor" href="#%E5%B8%B8%E7%94%A8http%E7%8A%B6%E6%80%81%E7%A0%81" aria-hidden="true"><span class="octicon octicon-link"></span></a>常用HTTP状态码</h2>
+
+<ul>
+<li>100
+
+<ul>
+<li>Continue</li>
+<li>初始的请求已经接受，客户应当继续发送请求的其余部分</li>
+</ul>
+</li>
+<li>101
+
+<ul>
+<li>switching protocols</li>
+<li>服务器将遵从客户的请求转换到另一种协议</li>
+</ul>
+</li>
+<li>200
+
+<ul>
+<li>OK</li>
+<li>一切正常，对GET和POST请求的应答文档跟在后面</li>
+</ul>
+</li>
+<li>201
+
+<ul>
+<li>created</li>
+<li>服务器已经创建了文档，location头给出了它的URL；</li>
+</ul>
+</li>
+<li>202
+
+<ul>
+<li>accepted</li>
+<li>已经接受请求，但处理尚未完成；</li>
+</ul>
+</li>
+<li>203
+
+<ul>
+<li>non-authoritative information</li>
+<li>文档已经正常地返回，但一些应答头可能不正确，因为使用的是文档的拷贝；吧</li>
+</ul>
+</li>
+<li>204
+
+<ul>
+<li>no content</li>
+<li>没有新文档，浏览器应该继续显示原来的文档。如果用户定期地刷新页面，而servlet可以确定用户文档足够新，这个状态码是很有用的；</li>
+</ul>
+</li>
+<li>205
+
+<ul>
+<li>reset content</li>
+<li>没有新的内容，但浏览器应该重置它所显示的内容。用来强制浏览器清除表单输入内容；</li>
+</ul>
+</li>
+<li>206
+
+<ul>
+<li>partial content</li>
+<li>客户发送了一个带有range头的GET请求，服务器完成了它；</li>
+</ul>
+</li>
+<li>300
+
+<ul>
+<li>multiple choices</li>
+<li>客户请求的文档可以在多个位置找到，这些位置已经在返回的文档内列出。如果服务器要提出优先选择，则应该在location应答头指明</li>
+</ul>
+</li>
+<li>301
+
+<ul>
+<li>moved permanently</li>
+<li>客户请求的文档在其他地方，新的URL在location头中给出，浏览器应该自动地访问新的URL；</li>
+</ul>
+</li>
+<li>302
+
+<ul>
+<li>found</li>
+<li>类似于301，但新的URL应该被视为临时的替代，而不是永久性的；</li>
+</ul>
+</li>
+<li>303
+
+<ul>
+<li>see other</li>
+<li>类似于301/302，不同之处在于，如果原来的秦秋是POST，location头指定的重定向目标文档应该通过GET提取；</li>
+</ul>
+</li>
+<li>304
+
+<ul>
+<li>not modified</li>
+<li>客户端有缓冲的文档并发出了一个条件性的请求（一般是提供if-modified-sincs头表示客户只想比指定日期更新文档）。服务器告诉客户，原来缓冲的文档还可以继续使用</li>
+</ul>
+</li>
+<li>305
+
+<ul>
+<li>use proxy</li>
+<li>客户请求的文档应当通过location头指明的代理服务器提取</li>
+</ul>
+</li>
+<li>307
+
+<ul>
+<li>temporary redirect</li>
+<li>和302相同。许多浏览器会错误的响应302应答进行重定向，即使原来的请求是POST，即使它实际只能在POST请求的应答是303时才能重定向。由于这个原因，HTTP1.1新增了307，以便更加清楚地区分几个状态码：当出现303应答时，浏览器可以跟随重定向的GET和POST请求；如果是307应答，则浏览器只能跟随对GET请求的重定向；</li>
+</ul>
+</li>
+<li>400
+
+<ul>
+<li>bad request</li>
+<li>请求出现语法错误</li>
+</ul>
+</li>
+<li>401
+
+<ul>
+<li>unauthorized</li>
+<li>客户试图未经授权访问受密码保护的页面。应答中会包含一个WWW-authenticate头，浏览器据此显示用户名字/密码对话框，然后在填写合适的authorization头后再次发出请求；</li>
+</ul>
+</li>
+<li>403
+
+<ul>
+<li>forbidden</li>
+<li>资源不可用</li>
+</ul>
+</li>
+<li>404
+
+<ul>
+<li>not found</li>
+<li>无法找到指定位置的资源</li>
+</ul>
+</li>
+<li>405
+
+<ul>
+<li>method not allowed</li>
+<li>请求方法（GET、POST、HEAD、Delete、PUT、TRACE等）对指定的资源不适用</li>
+</ul>
+</li>
+<li>406
+
+<ul>
+<li>not acceptable</li>
+<li>指定的资源已经找到，但它的MIME类型和客户在accpet头中所指定的不兼容；</li>
+</ul>
+</li>
+<li>407
+
+<ul>
+<li>proxy authentication required</li>
+<li>类似于401，表示客户必须先经过代理服务器的授权；</li>
+</ul>
+</li>
+<li>408
+
+<ul>
+<li>request timeout</li>
+<li>在服务器许可的等待时间内，客户一直没有发出任何请求，客户可以在以后重复同一请求；</li>
+</ul>
+</li>
+<li>409
+
+<ul>
+<li>conflict</li>
+<li>通常和PUT请求有关。由于请求和资源的当前状态相冲突，因此请求不能成功；</li>
+</ul>
+</li>
+<li>410
+
+<ul>
+<li>gone</li>
+<li>所请求的文档已经不再可用，而且服务器不知道应该重定向到哪一个地址。它和404的不同在于，返回407表示文档永久地离开了指定的为啥位置，而404表示由于未知的原因文档不可用；</li>
+</ul>
+</li>
+<li>411
+
+<ul>
+<li>length required</li>
+<li>服务器不能处理请求，除非客户发送一个content-length头；</li>
+</ul>
+</li>
+<li>412
+
+<ul>
+<li>precondition failed</li>
+<li>请求头中指定的一些前提条件失败</li>
+</ul>
+</li>
+<li>413
+
+<ul>
+<li>request entity too large</li>
+<li>目标文档的大小超过服务器当前愿意处理的大小。如果服务器认为自己能够稍后再处理该请求，则应该提供一个retry-after头</li>
+</ul>
+</li>
+<li>414
+
+<ul>
+<li>request URL too long</li>
+<li>URL太长</li>
+</ul>
+</li>
+<li>416
+
+<ul>
+<li>requested range not satisfiable</li>
+<li>服务器不能满足客户在请求中指定的range头</li>
+</ul>
+</li>
+<li>500
+
+<ul>
+<li>internal server error</li>
+<li>服务器遇到了意料不到的情况，不能完成客户的请求；</li>
+</ul>
+</li>
+<li>501
+
+<ul>
+<li>not implemented</li>
+<li>服务器不支持实现请求所需要的功能。例如，客户发出了一个服务器不支持的PUT请求；</li>
+</ul>
+</li>
+<li>502
+
+<ul>
+<li>bad gateway</li>
+<li>服务器作为网关或者代理时，为了完成请求访问下一个服务器，但该服务器返回了非法的应答；</li>
+</ul>
+</li>
+<li>503
+
+<ul>
+<li>service unavailable</li>
+<li>服务器由于维护或者负载过重未能应答。例如，servlet可能在数据库连接池已满的情况下返回503.服务器返回503时可以提供一个retry-after头</li>
+</ul>
+</li>
+<li>504
+
+<ul>
+<li>gateway timeout</li>
+<li>由作为代理或网关的服务器使用，表示不能及时地从远程服务器获得应答</li>
+</ul>
+</li>
+<li>505
+
+<ul>
+<li>HTTP versoin not supported</li>
+<li>服务器不支持请求中所指明的HTTP版本；</li>
+</ul>
+</li>
+</ul>
+
+<h2>
+<a id="user-content-readystate的5种状态" class="anchor" href="#readystate%E7%9A%845%E7%A7%8D%E7%8A%B6%E6%80%81" aria-hidden="true"><span class="octicon octicon-link"></span></a>readystate的5种状态</h2>
+
+<ul>
+<li>0：请求未初始化（还没有调用open()）；</li>
+<li>1：请求已经建立，但是还没有发送（还没有调用send()）；</li>
+<li>2：请求已经发送，正在处理中（通常现在可以从响应中获取内容头）；</li>
+<li>3：请求正在处理中，通常响应中已有部分数据可用了，但是服务器还没有完成响应的生成；</li>
+<li>4：响应已经完成；可以获取并使用服务器响应了</li>
+</ul>
+
+<h2>
+<a id="user-content-闭包的优点" class="anchor" href="#%E9%97%AD%E5%8C%85%E7%9A%84%E4%BC%98%E7%82%B9" aria-hidden="true"><span class="octicon octicon-link"></span></a>闭包的优点</h2>
+
+<p>详情查看一下两个链接<a href="http://blog.csdn.net/sunlylorn/article/details/6534610">CSDN</a>，<a href="http://www.cnblogs.com/dolphinX/archive/2012/09/29/2708763.html">cnblogs</a>;
+1. 匿名自执行函数，执行一次后即销毁，不会污染全局；
+2. 缓存，缓存哪些需要大量运算的值；
+3. 实现封装；
+4. 实现面向对象中的对象：</p>
+
+<pre><code>function Person(){
+    var name = "default";
+    return {
+        getName:function(){
+            return name;
+        },
+        setName:function(newName){
+            name = newName;
+        }
+    }
+}
+</code></pre>
+
+<h2>
+<a id="user-content-css响应式网格系统原理" class="anchor" href="#css%E5%93%8D%E5%BA%94%E5%BC%8F%E7%BD%91%E6%A0%BC%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86" aria-hidden="true"><span class="octicon octicon-link"></span></a>CSS响应式网格系统原理</h2>
+
+<p>总的来说，网格系统就是利用百分比把视口等分为12个，然后利用float属性使之并列显示</p>
+
+<pre><code>* {
+    box-sizing:border-box;
+}
+[class*="col-"]{
+    float:left;
+    padding:15px;
+    border: 1px solid red;
+}
+.col-1 {width: 8.33%;}
+.col-2 {width: 16.66%;}
+.col-3 {width: 25%;}
+.col-4 {width: 33.33%;}
+.col-5 {width: 41.66%;}
+.col-6 {width: 50%;}
+.col-7 {width: 58.33%;}
+.col-8 {width: 66.66%;}
+.col-9 {width: 75%;}
+.col-10 {width: 83.33%;}
+.col-11 {width: 91.66%;}
+.col-12 {width: 100%;}
+</code></pre>
+</article></body></html>
