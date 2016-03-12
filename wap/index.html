@@ -13,23 +13,23 @@
     <!-- 首页 Start -->
     <div class="container">
         <!-- data_con03 Start -->
-        <div class="data_con03">
-            <a href="#" class="item">
+        <div id="monthTags" class="data_con03">
+            <a href="#" data-month="1" class="item">
                 1月
             </a>
-            <a href="#" class="item cur">
+            <a href="#" data-month="12" class="item">
                 12月
             </a>
-            <a href="#" class="item">
+            <a href="#" data-month="11" class="item">
                 11月
             </a>
-            <a href="#" class="item">
+            <a href="#" data-month="10" class="item">
                 10月
             </a>
-            <a href="#" class="item">
+            <a href="#" data-month="9" class="item">
                 9月
             </a>
-            <a href="#" class="item">
+            <a href="#" data-month="8" class="item">
                 8月
             </a>
         </div>
@@ -64,9 +64,9 @@
                         </div>
                     </td>
                     <td>
-                        <a class="box01" href="#">
+                        <a id="detail" class="box01" href="#">
                             <span class="txt">可用积分余额</span>
-                            <i class="com_eles ele02"></i>
+                            <i  class="com_eles ele02"></i>
                         </a>
                         <div class="box02">
                             0
@@ -113,16 +113,16 @@
                 <span class="txt">本期消费情况</span>
             </div>
             <div class="data_con05_box">
-                <div class="txtBox02" style="text-align:right;">
-                    <a href="#" class="com_eles ele05 cur"></a>
-                    <a href="#" class="com_eles ele06"></a>
+                <div id="switch" class="txtBox02" style="text-align:right;">
+                    <a href="#" class="com_eles ele05 cur" data-index='0'></a>
+                    <a href="#" class="com_eles ele06" data-index='1'></a>
                 </div>
                 <div id="webCan" class="dataBox">
                     <img src="images/pic02.png" style="display:none" />
                     <div id="canvasDonut"></div>
                 </div>
-                <div id="webTable" class="dataBox">
-                    
+                <div id="webTable" class="dataBox" style="display: none; width: 100%;">
+                    <!-- 本期消费表将插入到这 -->
                 </div>
             </div>
         </div>
@@ -138,6 +138,7 @@
 <script type="text/javascript" src="scripts/ichart.1.2.1.src.js"></script>
 <script type="text/javascript" src="scripts/Please.js"></script>
 <script type="text/javascript" src="scripts/commonScript.js"></script>
+<script type="text/javascript" src="scripts/index.js"></script>
 
 <script type="text/javascript">
     document.body.addEventListener('touchstart', function () { });
@@ -152,19 +153,20 @@
 //     }
 //  })
 
-$.ajax({
-    url:'web.json',
-    method:'get',
-    success:function(res){
-        console.log("web.json",JSON.parse(res.JSON).expenseitems);
-    }
- })
 
 // $.ajax({
 //     url:'history.json',
 //     method:'get',
 //     success:function(res){
 //         console.log("history.json",JSON.parse(res.JSON).history);
+//     }
+//  });
+
+// $.ajax({
+//     url:'detail.json',
+//     method:'get',
+//     success:function(res){
+//         console.log("detial.json",JSON.parse(res.JSON).points);
 //     }
 //  });
 
