@@ -16,14 +16,11 @@
 //缺点是没有var提升定义，函数定义顺序不能错。
 (function(CJ){
 
-CJ.getCurrentTime = function(){
-	var now = new Date();
-	var tmpStr = now.getFullYear().toString();
-	tmpStr += (now.getMonth()+1).toString();
-	return tmpStr;
-}
-
 //这个要保证结果正确，前四位是年份，后边剩下的是月
+/**
+ * [getTimeStr 根据情况构造period参数的值。4位年份+1/2位月份]
+ * @return {[string]} [5或6位纯数字]
+ */
 CJ.getTimeStr = function(){
 	var now = new Date();
 	var tmpStr = now.getFullYear().toString();
@@ -39,10 +36,18 @@ CJ.getTimeStr = function(){
 		}else{
 			timeStr = tmpStr;
 		}
+	}else{
+		timeStr = tmpStr;
 	}
+	// console.log(timeStr);
 	return timeStr;
 }
 
+/**
+ * [getUrlMsg 解析url中的值]
+ * @param  {[string]} key [key值]
+ * @return {[string]}     [对应的值]
+ */
 CJ.getUrlMsg = function(key){
 	var searchStr = window.location.search;
 	//小于3的都没办法携带有用信息，
@@ -75,34 +80,44 @@ CJ.getUrlMsg = function(key){
 }
 
 /**
- * [renderWebObj2Table 把web.json里的关键数据转换成table组成的HTML，然后直接appendChild进去]
- * @param  {[arr]} arr [关键的数据]
- * @param  {[dom]} dom [要插入的节点]
- * @return {[dom]}     [构造好的dom节点]
+ * [renderDate //渲染‘这是什么时间段的账单’]
+ * @param  {[type]} dom [要渲染的节点]
  */
-CJ.convertWebObj2Table = function(arr){
-	var target = arr.slice();
-	
-	var outDiv = document.createElement('div');
-	target.forEach(function(v){
-		outDiv.setAttribute('class','dataBox_item01');
-		var table = document.createElement('table');
-		var tr = document.createElement('tr');
-		tr.innerHTML = '<th><div class="title">'+v.billname+'</div></th><th>'+v.amount+'</th>';
-		table.appendChild(tr);
-		var subbillArr = v.subbill;
+CJ.renderDate = function(dom){
+	var timeStr = CJ.getTimeStr();
+	var tMonth = timeStr.slice(4,timeStr.length);
+	var tYear = timeStr.slice(0,4);
+	var dayInMonth = {
+		1:31,
+		2:28,
+		3:31,
+		4:30,
+		5:31,
+		6:30,
+		7:31,
+		8:31,
+		9:30,
+		10:31,
+		11:30,
+		12:31
+	};
 
-		if(subbillArr.length > 0){
-			subbillArr.forEach(function(sv){
-				var subTr = document.createElement('tr');
-				subTr.innerHTML = '<td>'+sv.subbillname+'</td><td>'+sv.subbillamount+'</td>';
-				table.appendChild(subTr);
-				subTr = null;
-			})
+	var isLeapYear = (function(Year){
+		if (((Year % 4)==0) && ((Year % 100)!=0) || ((Year % 400)==0)) {
+			return (true);
+		} else { return (false); }
+	})(tYear);
+
+	function getLastDay(tMonth){
+		if(isLeapYear && tMonth == 2){
+			return 29;
 		}
-		outDiv.appendChild(table);
-	});
-	return outDiv;
+		return dayInMonth[tMonth];
+	}
+
+	var htmlStr = tMonth+'月1日--'+tMonth+'月'+getLastDay(tMonth)+'日';
+
+	dom.innerHTML = htmlStr;
 }
 
 })(window.CJ);

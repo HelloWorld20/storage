@@ -21,7 +21,6 @@ CJ.renderHistory = function(res,dom){
 		totalAmount = totalAmount + tmp;
 	});
 
-	//这个是临时定义的，就不挂载在workspace下了吧
 	function isInteger(obj) {
 		return Math.floor(obj) === obj;
 	}
@@ -53,6 +52,10 @@ CJ.renderHistory = function(res,dom){
 	});
 }
 
+/**
+ * [renderErrHistory 获取history.json错误的时候要做的]
+ * @param  {[dom]} dom [在那个dom上渲染]
+ */
 CJ.renderErrHistory = function(dom){
 	dom.querySelector('#canvasLine').style.display = 'none';
 	dom.querySelector('.data_con05_box').innerHTML = '<div class="data_con08"><img src="images/com_icon01.png" /><div class="txtBox01" style="height:auto;">账单信使“小九”暂时找不到您的这封账单呢，您可以先去 <a href="#">139邮箱</a> 查看一下其他账单哦！</div></div>';
@@ -128,7 +131,10 @@ CJ.getHistory = function(){
 	});
 }
 
-CJ.renderErrWeb = function(res){
+/**
+ * [renderErrWeb 获取web.json时出错要做的事]
+ */
+CJ.renderErrWeb = function(){
 	//没有数据时的表
 	var webTable = document.getElementById('webTable');
 	webTable.innerHTML = '<div class="infoBox"><table><tr><td><div class="txtBox01">暂无当月消费详细数据<br />更多账单信息，请点击进入139邮箱查阅！</div><div class="btnCon"><a href="#" class="com_btn01">进入139邮箱</a></div></td></tr></table></div>';
@@ -149,7 +155,7 @@ CJ.getWeb = function(){
 	    success:function(res){
 	        CJ.renderWeb(res);
 	    },error:function(res){
-	    	CJ.renderErrWeb(res);
+	    	CJ.renderErrWeb();
 	    }
 	});
 }
@@ -174,7 +180,9 @@ CJ.getBalance = function(){
 	    	},1000)
 	    },
 	    error:function(res){
-	    	console.error(res);
+	    	setTimeout(function(){
+	    		dom.innerHTML = '<b>-</b>';
+	    	},1000)
 	    },
 	    complete:function(){
 	    	setTimeout(function(){
@@ -232,8 +240,43 @@ CJ.convertWebObj2Donut = function(arr){
 	return result;
 }
 
+/**
+ * [renderWebObj2Table 把web.json里的关键数据转换成table组成的HTML，然后直接appendChild进去]
+ * @param  {[arr]} arr [关键的数据]
+ * @param  {[dom]} dom [要插入的节点]
+ * @return {[dom]}     [构造好的dom节点]
+ */
+CJ.convertWebObj2Table = function(arr){
+	var target = arr.slice();
+	
+	var outDiv = document.createElement('div');
+	target.forEach(function(v){
+		outDiv.setAttribute('class','dataBox_item01');
+		var table = document.createElement('table');
+		var tr = document.createElement('tr');
+		tr.innerHTML = '<th><div class="title">'+v.billname+'</div></th><th>'+v.amount+'</th>';
+		table.appendChild(tr);
+		var subbillArr = v.subbill;
+
+		if(subbillArr.length > 0){
+			subbillArr.forEach(function(sv){
+				var subTr = document.createElement('tr');
+				subTr.innerHTML = '<td>'+sv.subbillname+'</td><td>'+sv.subbillamount+'</td>';
+				table.appendChild(subTr);
+				subTr = null;
+			})
+		}
+		outDiv.appendChild(table);
+	});
+	return outDiv;
+}
+
+/**
+ * [reDoMonthTags 给index.html页面上边的月份选项卡添加上合适的src。]
+ * @param  {[string]} timeStr [构造好的当前时间的字符串]
+ */
 CJ.reDoMonthTags = function(timeStr){
-	console.log(timeStr);
+	// console.log(timeStr);
 	var targs = document.getElementById('monthTags').children;
 	var len = targs.length;
 	for(var i = 0; i < len; i++){
@@ -249,6 +292,10 @@ CJ.reDoMonthTags = function(timeStr){
 	}
 }
 
+/**
+ * [reWriteDetailHref 给跳转到detail.html的链接添加上合适的period值]
+ * @param  {[string]} timeStr [构造好的当前时间的字符串]
+ */
 CJ.reWriteDetailHref = function(timeStr){
 	document.getElementById('detail').setAttribute('href','detail.html?period='+timeStr);
 }
@@ -267,5 +314,7 @@ CJ.reWriteDetailHref = function(timeStr){
 
 	CJ.reDoMonthTags(timeStr);
 	CJ.reWriteDetailHref(timeStr);
+	//渲染‘什么时间段的账单’
+	CJ.renderDate(document.getElementById('date'));
 
 })(window.CJ);
