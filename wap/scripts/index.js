@@ -42,11 +42,21 @@ CJ.renderHistory = function(res,dom){
 		        data: data,
 		        width : cWidth,
 		        height : cHeight,
-		        coordinate:{height:'90%',background_color:'#f6f9fa'},
-		        sub_option:{
-		            hollow_inside:false,//设置一个点的亮色在外环的效果
-		            point_size:16
-		        },
+		        coordinate:{height:'90%',background_color:'#f6f9fa',
+							gridlinesVisible:false,
+							axis:{//border
+		                        color:"transparent",
+		                  	},
+		                  	label:{//坐标值
+		                        fontsize:0,
+		                  	},
+		                  	scale:{//刻度值 和 横向 坐标值 
+		                        scale_enable:false,
+		                  	}
+						},
+						sub_option:{
+							point_size:16,
+						},
 		    });
 		chart.draw();
 	});
@@ -316,5 +326,69 @@ CJ.reWriteDetailHref = function(timeStr){
 	CJ.reWriteDetailHref(timeStr);
 	//渲染‘什么时间段的账单’
 	CJ.renderDate(document.getElementById('date'));
+
+	/*$(function(){
+			var data = [
+			        	{
+			        		name : '北京',
+			        		value:[-9,1,12,20,26,30,32,29,22,12,0,-6],
+			        		color:'#1f7e92',
+			        		line_width:3
+			        	}
+			       ];
+			var chart = new iChart.LineBasic2D({
+				render: 'canvasDiv1',
+				data: data,
+				align: 'center',
+				width: 580,
+				height: 343,
+				background_color: "#F6F6F6",
+				sub_option: {
+					smooth: false, //平滑曲线
+					point_size: 12,
+					label: {
+						fontsize: 18,
+						color: "#2493F7"
+					}
+				},
+				tip: {
+					enable: false,
+					shadow: true
+				},
+				legend: {
+					enable: false
+				},
+				coordinate: {
+					width: 600,
+					valid_width: 500,
+					height: 260,
+					axis: {
+						color: '#9f9f9f',
+						width: [0, 0, 0, 0],
+						fontsize: 24
+					},
+					gridlinesVisible: false,
+					scale: [{
+						position: 'left',
+						scale_enable: false,
+						label: {
+							fontsize: 0,
+							color: "#5E5E5E"
+						},
+					}, {
+						position: 'bottom',
+						scale_width: 0,
+						label: {
+							fontsize: 24,
+							color: "#5E5E5E"
+						},
+						offsety: -20,
+						labels: [10,20,30,40,50,60],
+					}]
+				}
+			});
+			chart.draw();
+		});*/
+
 
 })(window.CJ);
