@@ -18,21 +18,31 @@
 
 //这个要保证结果正确，前四位是年份，后边剩下的是月
 /**
- * [getTimeStr 根据情况构造period参数的值。4位年份+1/2位月份]
- * @return {[string]} [5或6位纯数字]
+ * [getTimeStr 根据情况构造period参数的值。4位年份2位月份]
+ * @return {[string]} [6位纯数字]
  */
 CJ.getTimeStr = function(){
 	var now = new Date();
 	var tmpStr = now.getFullYear().toString();
-	tmpStr += (now.getMonth()+1).toString();
+	tmpStr += now.getMonth()>=9 ? (now.getMonth()+1).toString() : '0' + (now.getMonth()+1).toString();
+	var period = CJ.getUrlMsg('period');
 
 	var timeStr;
-	if(CJ.getUrlMsg('period')){
-		var tmp = CJ.getUrlMsg('period');
-		var tM = tmp.slice(4,tmp.length);
+	if(period){
+		var tY = period.slice(0,4);
+		var tM = period.slice(4,period.length);
+		if(tM.length == 1){
+			tM = '0'+tM;
+		}
+
+		//应该简单的加上判断period参数是否超过当前时间
+		// if(parseInt(tmpStr) - parseInt(tY+tM)){
+		// 	return tmpStr;
+		// }
+
 		//如果url中有period参数且这个参数长度大于5，而且月份正确，才能用period的值
-		if(tmp.length>=5&& 0 < parseInt(tM) < 13){
-			timeStr = CJ.getUrlMsg('period');
+		if(period.length>=5 && 0 < parseInt(tM) < 13){
+			timeStr = tY+tM;
 		}else{
 			timeStr = tmpStr;
 		}
@@ -86,6 +96,7 @@ CJ.getUrlMsg = function(key){
 CJ.renderDate = function(dom){
 	var timeStr = CJ.getTimeStr();
 	var tMonth = timeStr.slice(4,timeStr.length);
+	tMonth = parseInt(tMonth);
 	var tYear = timeStr.slice(0,4);
 	var dayInMonth = {
 		1:31,

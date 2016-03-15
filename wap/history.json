@@ -1,6 +1,6 @@
 {
     "RetCode": 0,
     "Msg": "成功",
-    "JSON": "{\"history\":[{\"period\":\"201309\",\"periodEnd\":\"\",\"periodStart\":\"\",\"totalAmount\":\"97.51\"},{\"period\":\"201310\",\"periodEnd\":\"\",\"periodStart\":\"\",\"totalAmount\":\"3971.97\"},{\"period\":\"201311\",\"periodEnd\":\"\",\"periodStart\":\"\",\"totalAmount\":\"67.34\"},{\"period\":\"201312\",\"periodEnd\":\"\",\"periodStart\":\"\",\"totalAmount\":\"42.95\"},{\"period\":\"201401\",\"periodEnd\":\"\",\"periodStart\":\"\",\"totalAmount\":\"42.65\"},{\"period\":\"201402\",\"periodEnd\":\"\",\"periodStart\":\"\",\"totalAmount\":\"32.60\"}]}",
+    "JSON": "{\"history\":[{\"period\":\"201602\",\"periodEnd\":\"\",\"periodStart\":\"\",\"totalAmount\":\"97.51\"},{\"period\":\"201601\",\"periodEnd\":\"\",\"periodStart\":\"\",\"totalAmount\":\"3971.97\"},{\"period\":\"201512\",\"periodEnd\":\"\",\"periodStart\":\"\",\"totalAmount\":\"67.34\"},{\"period\":\"201511\",\"periodEnd\":\"\",\"periodStart\":\"\",\"totalAmount\":\"42.95\"},{\"period\":\"201510\",\"periodEnd\":\"\",\"periodStart\":\"\",\"totalAmount\":\"42.65\"},{\"period\":\"201509\",\"periodEnd\":\"\",\"periodStart\":\"\",\"totalAmount\":\"32.60\"}]}",
     "Total": 0
 }

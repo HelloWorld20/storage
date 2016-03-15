@@ -10,6 +10,7 @@ CJ.renderHistory = function(res,dom){
 	var dataValue = [];
 	var totalAmount = 0;
 	var bTags = dom.querySelectorAll('b');
+	var labels = [];
 
 	var t = $('#history');
 	var cWidth = parseInt(t.width());
@@ -19,6 +20,7 @@ CJ.renderHistory = function(res,dom){
 		var tmp = parseFloat(v.totalAmount);
 		dataValue.push(tmp);
 		totalAmount = totalAmount + tmp;
+		labels.push(parseInt(v.period.slice(4,6))+'月');
 	});
 
 	function isInteger(obj) {
@@ -38,27 +40,57 @@ CJ.renderHistory = function(res,dom){
 		                line_width:3
 		            }];
 		var chart = new iChart.LineBasic2D({
-		        render : 'canvasLine',
-		        data: data,
-		        width : cWidth,
-		        height : cHeight,
-		        coordinate:{height:'90%',background_color:'#f6f9fa',
-							gridlinesVisible:false,
-							axis:{//border
-		                        color:"transparent",
-		                  	},
-		                  	label:{//坐标值
-		                        fontsize:0,
-		                  	},
-		                  	scale:{//刻度值 和 横向 坐标值 
-		                        scale_enable:false,
-		                  	}
+				render: 'canvasLine',
+				data: data,
+				align: 'center',
+				width: 580,
+				height: 343,
+				background_color: "#F6F6F6",
+				sub_option: {
+					smooth: false, //平滑曲线
+					point_size: 12,
+					label: {
+						fontsize: 18,
+						color: "#2493F7"
+					}
+				},
+				tip: {
+					enable: false,
+					shadow: true
+				},
+				legend: {
+					enable: false
+				},
+				coordinate: {
+					width: 600,
+					valid_width: 500,
+					height: 260,
+					axis: {
+						color: '#9f9f9f',
+						width: [0, 0, 0, 0],
+						fontsize: 24
+					},
+					gridlinesVisible: false,
+					scale: [{
+						position: 'left',
+						scale_enable: false,
+						label: {
+							fontsize: 0,
+							color: "#5E5E5E"
 						},
-						sub_option:{
-							point_size:16,
+					}, {
+						position: 'bottom',
+						scale_width: 0,
+						label: {
+							fontsize: 24,
+							color: "#5E5E5E"
 						},
-		    });
-		chart.draw();
+						offsety: 0,
+						labels: labels,
+					}]
+				}
+			});
+			chart.draw();
 	});
 }
 
@@ -115,6 +147,8 @@ CJ.renderWeb = function(res){
 
 	var dom = document.getElementById('webTable');
 	dom.appendChild(tableDom);
+
+
 }
 
 /**
@@ -130,15 +164,23 @@ CJ.renderBalance = function(res,dom){
  */
 CJ.getHistory = function(){
 	var dom = document.getElementById('history');
-	$.ajax({
-	    url:'../history.json',
-	    method:'get',
-	    success:function(res){
-	        CJ.renderHistory(res,dom);
-	    },error:function(res){
-	    	CJ.renderErrHistory(dom);
-	    }
-	});
+	setTimeout(function(){    		
+		$.ajax({
+		    url:'../history.json',
+		    method:'get',
+		    success:function(res){
+		    	console.log(JSON.parse(res.JSON));
+		        CJ.renderHistory(res,dom);
+		        CJ.renderTags(res,document.getElementById('monthTags'));
+		    },error:function(res){
+		    	CJ.renderErrHistory(dom);
+		    },
+		    complete:function(){
+		    	dom.querySelector('.mask').style.display = 'none';
+				dom.querySelector('.data_con05_box').style.display = 'block';
+		    }
+		});
+	},900);
 }
 
 /**
@@ -199,7 +241,6 @@ CJ.getBalance = function(){
 	    	if(dom.querySelector('img')){
 	    		dom.querySelector('img').style.display = 'none';
 	    	}
-
 	    	},1000)
 	    }
 	})
@@ -227,9 +268,23 @@ CJ.switchTags = function(e){
 	blocks[1].style.display = 'none';
 
 	blocks[$target.attr('data-index')].style.display = 'block';
-
 }
-//
+
+CJ.renderTags = function(res,dom){
+	// console.log(JSON.parse(res.JSON).history);
+	var data = JSON.parse(res.JSON).history;
+	data = data.reverse();
+	var children = dom.children;
+	var TAGS_NUM = 6;
+	var tagsHTML = '';
+	for(var i = 0; i < TAGS_NUM; i++){
+		var tTime = data[i].period;
+		children[i].innerText = parseInt(tTime.slice(4))+'月';
+		children[i].setAttribute('data-time',tTime)
+	}
+	var timeStr=CJ.getTimeStr()
+	// CJ.reDoMonthTags(timeStr);
+}
 
 /**
  * [convertWebObj2Donut 把web.json里的关键数据转换成]
@@ -286,17 +341,20 @@ CJ.convertWebObj2Table = function(arr){
  * @param  {[string]} timeStr [构造好的当前时间的字符串]
  */
 CJ.reDoMonthTags = function(timeStr){
-	// console.log(timeStr);
+
 	var targs = document.getElementById('monthTags').children;
 	var len = targs.length;
 	for(var i = 0; i < len; i++){
-		var tMonth = targs[i].getAttribute('data-month');
-		var tYear = timeStr.slice(0,4);
-		targs[i].setAttribute('href','?period='+tYear+tMonth);
+		var tTime = targs[i].getAttribute('data-time');
+		// if(tMonth.length == 1){
+		// 	tMonth = '0'+tMonth;
+		// }
+		// var tYear = timeStr.slice(0,4);
+		targs[i].setAttribute('href','?period='+tTime);
 	}
-	var monthStr = timeStr.slice(4);
+	// var monthStr = timeStr.slice(4);
 	for(var i = 0; i < len; i++){
-		if(targs[i].getAttribute('data-month') == monthStr){
+		if(targs[i].getAttribute('data-time') == timeStr){
 			$(targs[i]).addClass('cur');
 		}
 	}
@@ -326,69 +384,5 @@ CJ.reWriteDetailHref = function(timeStr){
 	CJ.reWriteDetailHref(timeStr);
 	//渲染‘什么时间段的账单’
 	CJ.renderDate(document.getElementById('date'));
-
-	/*$(function(){
-			var data = [
-			        	{
-			        		name : '北京',
-			        		value:[-9,1,12,20,26,30,32,29,22,12,0,-6],
-			        		color:'#1f7e92',
-			        		line_width:3
-			        	}
-			       ];
-			var chart = new iChart.LineBasic2D({
-				render: 'canvasDiv1',
-				data: data,
-				align: 'center',
-				width: 580,
-				height: 343,
-				background_color: "#F6F6F6",
-				sub_option: {
-					smooth: false, //平滑曲线
-					point_size: 12,
-					label: {
-						fontsize: 18,
-						color: "#2493F7"
-					}
-				},
-				tip: {
-					enable: false,
-					shadow: true
-				},
-				legend: {
-					enable: false
-				},
-				coordinate: {
-					width: 600,
-					valid_width: 500,
-					height: 260,
-					axis: {
-						color: '#9f9f9f',
-						width: [0, 0, 0, 0],
-						fontsize: 24
-					},
-					gridlinesVisible: false,
-					scale: [{
-						position: 'left',
-						scale_enable: false,
-						label: {
-							fontsize: 0,
-							color: "#5E5E5E"
-						},
-					}, {
-						position: 'bottom',
-						scale_width: 0,
-						label: {
-							fontsize: 24,
-							color: "#5E5E5E"
-						},
-						offsety: -20,
-						labels: [10,20,30,40,50,60],
-					}]
-				}
-			});
-			chart.draw();
-		});*/
-
 
 })(window.CJ);

@@ -14,23 +14,23 @@
     <div class="container">
         <!-- data_con03 Start -->
         <div id="monthTags" class="data_con03">
-            <a href="#" data-month="1" class="item">
-                1月
+            <a href="#" data-time='' class="item">
+                
             </a>
-            <a href="#" data-month="12" class="item">
-                12月
+            <a href="#" data-time='' class="item">
+                
             </a>
-            <a href="#" data-month="11" class="item">
-                11月
+            <a href="#" data-time='' class="item">
+                
             </a>
-            <a href="#" data-month="10" class="item">
-                10月
+            <a href="#" data-time='' class="item">
+               
             </a>
-            <a href="#" data-month="9" class="item">
-                9月
+            <a href="#" data-time='' class="item">
+                
             </a>
-            <a href="#" data-month="8" class="item">
-                8月
+            <a href="#" data-time='' class="item">
+               
             </a>
         </div>
         <!-- data_con03 Start -->
@@ -90,12 +90,24 @@
         </div>
         <!-- data_con04 End -->
         <!-- data_con05 Start -->
-        <div id="history" class="data_con05">
+        <div id="history" class="data_con05 data_con07">
             <div class="data_con05_title">
                 <i class="com_eles ele03"></i>
                 <span class="txt">近半年消费分析</span>
             </div>
-            <div class="data_con05_box">
+            <div class="mask" style="height:410px;width:100%;background-color:#fff;z-index: 1">                
+                <table>
+                    <tr>
+                        <td style="height:410px;">
+                            <img src="images/loading.gif" style="width:50px;"/>
+                            <div class="txtBox01">
+                                努力加载中，请稍后……
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="data_con05_box" style="display: none">
                 <div class="txtBox01">
                     半年来一共消费 <b style="font-size:26px;color:#2493f7;">-</b> 元/月均消费 <b style="font-size:26px;color:#2493f7;">-</b> 元
                 </div>
@@ -139,7 +151,7 @@
 <script type="text/javascript" src="scripts/Please.js"></script>
 <script type="text/javascript" src="scripts/commonScript.js"></script>
 <script type="text/javascript" src="scripts/index.js"></script>
-
+<script type="text/html"></script>
 <script type="text/javascript">
     document.body.addEventListener('touchstart', function () { });
 
