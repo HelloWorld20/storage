@@ -14,28 +14,23 @@
     <div class="container">
         <!-- data_con03 Start -->
         <div id="monthTags" class="data_con03">
-            <a href="#" data-time='' class="item">
-                
-            </a>
-            <a href="#" data-time='' class="item">
-                
-            </a>
-            <a href="#" data-time='' class="item">
-                
-            </a>
-            <a href="#" data-time='' class="item">
-               
-            </a>
-            <a href="#" data-time='' class="item">
-                
-            </a>
-            <a href="#" data-time='' class="item">
-               
-            </a>
+           
         </div>
         <!-- data_con03 Start -->
+        <!-- <div class="mask data_con07" style="height:100%;width:100%;background-color:#fff;z-index: 1;position: absolute;">            
+            <table>
+                <tr>
+                    <td style="height:410px;width:100%">
+                        <img src="images/loading.gif" style="width:50px;"/>
+                        <div class="txtBox01">
+                            努力加载中，请稍后……
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div> -->
         <!-- data_con01 Start -->
-        <div class="data_con01" style="margin-top:12px;">
+        <div id="info" class="data_con01" style="margin-top:12px;">
             <table>
                 <tr>
                     <td>
@@ -95,7 +90,7 @@
                 <i class="com_eles ele03"></i>
                 <span class="txt">近半年消费分析</span>
             </div>
-            <div class="mask" style="height:410px;width:100%;background-color:#fff;z-index: 1">                
+            <!-- <div class="mask" style="height:410px;width:100%;background-color:#fff;z-index: 1">                
                 <table>
                     <tr>
                         <td style="height:410px;">
@@ -106,8 +101,8 @@
                         </td>
                     </tr>
                 </table>
-            </div>
-            <div class="data_con05_box" style="display: none">
+            </div> -->
+            <div class="data_con05_box">
                 <div class="txtBox01">
                     半年来一共消费 <b style="font-size:26px;color:#2493f7;">-</b> 元/月均消费 <b style="font-size:26px;color:#2493f7;">-</b> 元
                 </div>
@@ -148,14 +143,29 @@
     </div>-->
     <!-- footer End -->
 <script type="text/javascript" src="scripts/ichart.1.2.1.src.js"></script>
-<script type="text/javascript" src="scripts/Please.js"></script>
+<script type="text/javascript" src="scripts/template.js"></script>
 <script type="text/javascript" src="scripts/commonScript.js"></script>
 <script type="text/javascript" src="scripts/index.js"></script>
 <script type="text/html"></script>
 <script type="text/javascript">
-    document.body.addEventListener('touchstart', function () { });
 
-    $.popCtrl();
+// var tpl = '{{each values as v i}}'+
+//             '<a href="{{v.url}}" class="item">{{v.month}}</a>'+
+//             '{{/each}}',
+
+// datas = {values:[{url:'index.html?period=201602',month:'2月'},
+//                 {url:'index.html?period=201601',month:'1月'},
+//                 {url:'index.html?period=201512',month:'12月'},
+//                 {url:'index.html?period=201511',month:'11月'},
+//                 {url:'index.html?period=201510',month:'10月'},
+//                 {url:'index.html?period=201609',month:'9月'},]}
+
+// var render = template.compile(tpl);
+// var html = render(datas);
+// document.getElementById('monthTags').innerHTML = html;
+
+
+
 
 // $.ajax({
 //     url:'balance.json',
@@ -181,6 +191,9 @@
 //         console.log("detial.json",JSON.parse(res.JSON).points);
 //     }
 //  });
+
+
+
 
 
 </script>

@@ -13,25 +13,22 @@
     <!-- 首页 Start -->
     <div class="container">
         <!-- data_con01 Start -->
-        <div class="data_con01">
-            <table>
-                <tr>
-                    <td>
-                        <a class="infoBox">
-                            <i class="com_eles ele01"></i>
-                            <span class="txt">13450417444</span>
-                        </a>
-                    </td>
-                    <td>
-                        <span id="date" class="txt">--</span>
-                    </td>
-                </tr>
-            </table>
+        <div id="period" class="data_con01">
+
         </div>
         <!-- data_con01 End -->
         <!-- data_con02 Start -->
-        <div id='detailTable' class="data_con02">
-            
+        <div id='detailTable' class="data_con02 data_con07">
+           <table>
+                <tr>
+                    <td style="height:400px;">
+                        <img src="images/loading.gif" style="width:50px;"/>
+                        <div class="txtBox01">
+                            努力加载中，请稍后……
+                        </div>
+                    </td>
+                </tr>
+            </table> 
         </div>
         <!-- data_con02 End -->
     </div>
@@ -43,22 +40,54 @@
     </div>-->
     <!-- footer End -->
 
+<script type="text/javascript" src="scripts/template.js"></script>
 <script type="text/javascript" src="scripts/commonScript.js"></script>
 <script type="text/javascript" src="scripts/detail.js"></script>
+<script id="template" type="text/html">
+    
+</script>
 <script type="text/javascript">
-document.body.addEventListener('touchstart', function () { });
 
-$.popCtrl();
+// var data = {
+    
+// }
 
+// var source = '<div class="data_con01">'+
+//         '<table>'+
+//             '<tr>'+
+//                 '<td>'+
+//                     '<a class="infoBox">'+
+//                         '<i class="com_eles ele01"></i>'+
+//                         '<span class="txt">13450417444</span>'+
+//                     '</a>'+
+//                 '</td>'+
+//                 '<td><span id="date" class="txt"></span></td>'+
+//             '</tr>'+
+//         '</table>'+
+//     '</div>'+
+//     '{{each values as v i}}'+
+//     '<div class="data_con02_item">'+
+//             '<li class="com_ele01"></li>'+
+//             '<span class="txt">{{v.billname}}</span>'+
+//             '<span class="num">{{v.amount}}</span>'+
+//     '</div>'+
+//     '{{/each}}'
 
 // $.ajax({
 //     url:'web.json',
 //     method:'get',
 //     success:function(res){
-//         // console.log("web.json",JSON.parse(res.JSON).expenseitems);
-//         console.log("web.json",JSON.parse(res.JSON).expenseitems)
+//         console.log("web.json",JSON.parse(res.JSON).expenseitems);
+//         data.values = JSON.parse(res.JSON).expenseitems;
+//         // var html = template('template',data);
+//         var render = template.compile(source);
+//         var html = render(data)
+//         document.querySelector('.container').innerHTML = html;
+//         CJ.renderDate(document.getElementById('date'));
 //     }
 //  })
+
+
 
 </script>
 </body>
