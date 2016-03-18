@@ -208,7 +208,7 @@ CJ.view = {name:'CJ.view'};
 CJ.model = {
 	name:'CJ.model',
 	colorArr: ['#2ab8ac','#ffab52','#cce033','#9c55a5','#57cadd','#fff68d'],
-	monthArr: [],
+	monthArr: ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月'],
 	TAGS_NUM:6,
 };
 CJ.controller = {name:'CJ.controller'};

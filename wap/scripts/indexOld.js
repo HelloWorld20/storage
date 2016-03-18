@@ -10,11 +10,7 @@ CJ.renderHistory = function(res,dom){
 	var totalAmount = 0;
 	var bTags = dom.querySelectorAll('b');
 	var labels = [];
-
-	var t = $('#history');
-	var cWidth = parseInt(t.width());
-	var cHeight = Math.ceil(cWidth/2);
-
+	
 	//做个容错，如果传回的数据少于6位。
 	//一定要循环6次，如果返回值中某个对象的period值在model.monthArr里，则传入当前对象的totalAmount值进去
 	for(var i = 0; i < CJ.model.TAGS_NUM; i++){
@@ -271,7 +267,7 @@ CJ.getHistory = function(){
 		    	CJ.renderErrHistory(dom);
 		    },
 		    complete:function(){
-		    	document.querySelector('.mask').style.display = 'none';
+		    	// document.querySelector('.mask').style.display = 'none';
 		    }
 		});
 	},900);
