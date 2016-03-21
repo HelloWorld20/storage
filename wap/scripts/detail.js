@@ -4,35 +4,7 @@ CJ.extend(model,{
 	api:{
 		webApi:'web.json',
 	},
-	tpl:{
-		detailListTpl:'{{each values as v i}}'+
-					    '<div class="data_con02_item">'+
-				            '<li class="com_ele01"></li>'+
-				            '<span class="txt">{{v.billname}}</span>'+
-				            '<span class="num">{{v.amount}}</span>'+
-					    '</div>'+
-				    	'{{/each}}',
-
-		detailPeriodTpl:'<table>'+
-				            '<tr>'+
-				                '<td>'+
-				                    '<a class="infoBox">'+
-				                        '<i class="com_eles ele01"></i>'+
-				                        '<span class="txt">13450417444</span>'+
-				                    '</a>'+
-				                '</td>'+
-				                '<td><span id="date" class="txt">{{values}}</span></td>'+
-				            '</tr>'+
-				        '</table>',
-		errorTpl:'<div class="container">'+
-			        '<div class="data_con08">'+
-			            '<img src="images/com_icon01.png" />'+
-			            '<div class="txtBox01">'+
-			                '账单信使“小九”暂时找不到您的这封账单呢，您可以先去 <a href="#">139邮箱</a> 查看一下其他账单哦！'+
-			            '</div>'+
-			        '</div>'+
-			    '</div>',
-	},
+	
 	defaults:{
 		
 	},
@@ -73,7 +45,35 @@ CJ.extend(model,{
 
 (function(view){
 CJ.extend(view,{
+	tpl:{
+		detailListTpl:'{{each values as v i}}'+
+					    '<div class="data_con02_item">'+
+				            '<li class="com_ele01"></li>'+
+				            '<span class="txt">{{v.billname}}</span>'+
+				            '<span class="num">{{v.amount}}</span>'+
+					    '</div>'+
+				    	'{{/each}}',
 
+		detailPeriodTpl:'<table>'+
+				            '<tr>'+
+				                '<td>'+
+				                    '<a class="infoBox">'+
+				                        '<i class="com_eles ele01"></i>'+
+				                        '<span class="txt">13450417444</span>'+
+				                    '</a>'+
+				                '</td>'+
+				                '<td><span id="date" class="txt">{{values}}</span></td>'+
+				            '</tr>'+
+				        '</table>',
+		errorTpl:'<div class="container">'+
+			        '<div class="data_con08">'+
+			            '<img src="images/com_icon01.png" />'+
+			            '<div class="txtBox01">'+
+			                '账单信使“小九”暂时找不到您的这封账单呢，您可以先去 <a href="#">139邮箱</a> 查看一下其他账单哦！'+
+			            '</div>'+
+			        '</div>'+
+			    '</div>',
+	},
 	//需要的data的结构是{values:[,,,,]}}
 	render:function(dom,tpl,datas){
 		var render = template.compile(tpl);
@@ -96,19 +96,19 @@ CJ.extend(controller,{
 		// $(document).bind('defaultListDataChanged',function(){
 		// 	var dom = document.querySelector('#detailTable'),
 		// 		data = {values:arguments[1]},
-		// 		tpl = CJ.model.tpl.detailListTpl;
+		// 		tpl = CJ.view.tpl.detailListTpl;
 		// 	CJ.view.render.call(null,dom,tpl,data);
 		// });
 		// 也可以写成这样
-		this.eventListener('defaultListDataChanged',document.querySelector('#detailTable'),CJ.model.tpl.detailListTpl);
+		this.eventListener('defaultListDataChanged',document.querySelector('#detailTable'),CJ.view.tpl.detailListTpl);
 		
-		this.eventListener('detailAjaxError',document.querySelector('#detailTable'),CJ.model.tpl.errorTpl);
+		this.eventListener('detailAjaxError',document.querySelector('#detailTable'),CJ.view.tpl.errorTpl);
 
 		//period值改变时触发，其实都没什么鸟用。都只会触发一次而已
 		$(document).bind('periodChanged',function(){
 			var dom = document.querySelector('#period'),
 				data = {values:arguments[1]},
-				tpl = CJ.model.tpl.detailPeriodTpl;
+				tpl = CJ.view.tpl.detailPeriodTpl;
 			CJ.view.render.call(null,dom,tpl,data);
 		});
 
