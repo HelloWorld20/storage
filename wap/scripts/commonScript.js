@@ -108,9 +108,9 @@ CJ.getTimeStr = function(){
 		var tM = period.slice(4,period.length);
 		if(tM.length == 1){
 			tM = '0'+tM;
-		//如果url中有period参数且这个参数长度等于6，而且月份正确，才能用period的值
+		//如果url中有period参数且这个参数长度大于5，而且月份正确，才能用period的值
 		}
-		if(period.length==6 && 0 < parseInt(tM) < 13){
+		if(period.length>=5 && 0 < parseInt(tM) < 13){
 			timeStr = tY+tM;
 		}else{
 			timeStr = tmpStr;
