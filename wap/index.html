@@ -6,8 +6,7 @@
     <meta name="format-detection" content="telephone=no" />
     <title>“iPhone 6 天天送”</title>
     <link href="css/layout.css" rel="stylesheet" />
-    <script src="scripts/jquery-2.1.4.min.js"></script>
-    <script src="scripts/wap.plugins.js"></script>
+    <!-- <script src="scripts/lib/jquery-2.1.4.min.js"></script> -->
 </head>
 <body>
     <!-- 首页 Start -->
@@ -16,65 +15,19 @@
         <div id="monthTags" class="data_con03">
            
         </div>
-        <!-- data_con03 Start -->
-        <!-- <div class="mask data_con07" style="height:100%;width:100%;background-color:#fff;z-index: 1;position: absolute;">            
-            <table>
-                <tr>
-                    <td style="height:410px;width:100%">
-                        <img src="images/loading.gif" style="width:50px;"/>
-                        <div class="txtBox01">
-                            努力加载中，请稍后……
-                        </div>
-                    </td>
-                </tr>
-            </table>
-        </div> -->
-        <!-- data_con01 Start -->
-        <div id="info" class="data_con01" style="margin-top:12px;">
-           
-        </div>
-        <!-- data_con01 End -->
-        <!-- data_con04 Start -->
-        <div id="info2" class="data_con04">
-            
-        </div>
-        <!-- data_con04 End -->
-        <!-- data_con05 Start -->
-        <div id="history" class="data_con05">
-            <div class="data_con05_title">
-                <i class="com_eles ele03"></i>
-                <span class="txt">近半年消费分析</span>
+        <div id="wrapper">
+            <div class="data_con07">
+                <table>
+                    <tr>
+                        <td style="height:400px;">
+                            <img src="images/loading.gif" style="width:50px;"/>
+                            <div class="txtBox01">
+                                努力加载中，请稍后……
+                            </div>
+                        </td>
+                    </tr>
+                </table>
             </div>
-            <div class="data_con05_box">
-                <div class="txtBox01">
-                    半年来一共消费 <b style="font-size:26px;color:#2493f7;">-</b> 元/月均消费 <b style="font-size:26px;color:#2493f7;">-</b> 元
-                </div>
-                <div class="dataBox">
-                    <!-- <img src="images/pic01.png" /> -->
-                    <div id="canvasLine"></div>
-                </div>
-            </div>
-        </div>
-        <!-- data_con05 End -->
-        <!-- data_con05 Start -->
-        <div id="consume" class="data_con05">
-            <!-- <div class="data_con05_title">
-                <i class="com_eles ele04"></i>
-                <span class="txt">本期消费情况</span>
-            </div>
-            <div class="data_con05_box">
-                <div id="switch" class="txtBox02" style="text-align:right;">
-                    <a href="#" class="com_eles ele05 cur" data-index='0'></a>
-                    <a href="#" class="com_eles ele06" data-index='1'></a>
-                </div>
-                <div id="webCan" class="dataBox">
-                    <img src="images/pic02.png" style="display:none" />
-                    <div id="canvasDonut"></div>
-                </div>
-                <div id="webTable" class="dataBox" style="display: none; width: 100%;">
-                    本期消费表将插入到这
-                </div>
-            </div> -->
         </div>
         <!-- data_con05 End -->
     </div>
@@ -85,39 +38,26 @@
         <div class="txt">京ICP备05002571号 | 中国移动通信版权所有 | 客服热线:10086</div>
     </div>-->
     <!-- footer End -->
-<script type="text/javascript" src="scripts/ichart.1.2.1.src.js"></script>
-<script type="text/javascript" src="scripts/template.js"></script>
-<script type="text/javascript" src="scripts/commonScript.js"></script>
-<script type="text/javascript" src="scripts/index.js"></script>
-<script type="text/html"></script>
+<script type="text/javascript" src="scripts/require.js"data-main="scripts/appIndex.js"></script>
+<!-- <script type="text/javascript" src="scripts/lib/ichart.1.2.1.src.js"></script>
+<script type="text/javascript" src="scripts/lib/template.js"></script>
+<script type="text/javascript" src="scripts/app/commonScript.js"></script>
+<script type="text/javascript" src="scripts/app/index.js"></script> -->
 <script type="text/javascript">
 
-// var tpl = CJ.model.tpl.consumeTpl;
+// var tpl = '{{JSON.balance}}';
 
-// var datas = {
-//     expenseitems:[
-//             {billname:'固定费用',amount:'75.00',
-//                 subbill:[
-//                     {subbillname:'动感3G网聊卡19套餐',subbillamount:'25.00'},
-//                     {subbillname:'省内短号群聊网包月套餐 25.00元',subbillamount:'25.00'},
-//                     {subbillname:'预付费亲情号码网龄叠加包（3年以上）',subbillamount:'25.00'}
-//                 ]
-//             },
-//             {billname:'固定费用',amount:'75.00',
-//                 subbill:[
-//                     {subbillname:'本地通话',subbillamount:'25.00'},
-//                     {subbillname:'本地国内（不含港澳台）长途费',subbillamount:'25.00'},
-//                     {subbillname:'本地台港澳及国际长途',subbillamount:'25.00'},
-//                     {subbillname:'国内（不含港澳台）漫游通话费',subbillamount:'25.00'},
-//                     {subbillname:'声讯台业务移动费',subbillamount:'25.00'}
-//                 ]
+// var datas = {RetCode: 0,
+//              Msg:'suc',
+//              JSON:{
+//                 balance:'160',
+//                 leftRow:'333'
+//              }
 //             }
-//         ]
-//     }
 
 // var render = template.compile(tpl);
 // var html = render(datas);
-// document.getElementById('consume').innerHTML = html;
+// document.getElementById('search').innerHTML = html;
 
 
 
