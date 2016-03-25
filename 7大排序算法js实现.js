@@ -5,36 +5,33 @@ Array.prototype.swap = function(i,j){
 }
 
 Array.prototype.quickSort = function(i,j){
-	// if(i>=j-1){
-	// 	return;
-	// }
-	// var len = this.length;
-	// var i = i?i:0;
-	// var j = j?j:len-1;
-	// var t = this[i];
-	// while(i < j-1){
-	// 	var it = i;
-	// 	var jt = j;
-	// 	while(i < j-1 && t < this[j]){
-	// 		j--;
-	// 	}
-	// 	if(t >= this[j]){
-	// 		this.swap(i,j);
-	// 	}
-	// 	while(i < j-1 && t >= this[i]){
-	// 		i++;
-	// 	}
-	// 	if(t < this[i]){
-	// 		this.swap(i,j);
-	// 	}
-	// }
-	// console.log(this)
-	// if(i>=j-1){
-	// 	return;
-	// }
-	// this.quickSort(0,i);
-	// this.quickSort(j+1,len-1);
+	var i = i!==undefined ? i : 0;
+	var j = j!==undefined ? j : this.length-1;
+	var oi = i;
+	var len = j-i;
+	if(len < 1){//退出递归的判定条件
+		return;
+	}
+	var t = this[i];
+	while(i<j-1){
+		while(i<j-1 && t<this[j]){
+			j--;
+		}
+		if(t>this[j]){
+			this.swap(i,j);
+		}
+		while(i<j-1 && t>=this[i]){
+			i++;
+		}
+		if(t<=this[i]){
+			this.swap(i,j);
+		}
+	}
+	this.quickSort(oi,i);
+	this.quickSort(j+1,len)
 }
+// a.quickSort()
+// console.log(a);
 
 
 Array.prototype.BubbleSort = function(){
