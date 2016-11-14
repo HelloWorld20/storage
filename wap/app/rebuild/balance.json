@@ -1,9 +1,0 @@
-{
-	"RetCode": 0,
-	"Msg": "成功",
-	"JSON": {
-		"balance": "160.90",
-		"leftflow": "625.44",
-		"totalflow": "1024.0"
-	}
-}
