@@ -1,16 +1,63 @@
 /**
  * description：我的核心函数库
  * author：weijianghong
- * date：2016-11-17
- * list：getClass;hasClass;addClass;removeClass;extend;queue;throttle;debounc;ajax;isArray;isFunction;isObject;isElement;
+ * date：2016-12-08
+ * list：$,$$,on,one,off,getClass;hasClass;addClass;removeClass;extend;queue;throttle;debounc;ajax;isArray;isFunction;isObject;isElement;
  */
 
 "use strct"
 
 module.exports = {
     $: function ( selector ) {
+        return document.querySelector( selector );
+    },
+
+    $$: function ( selector ) {
         return document.querySelectorAll( selector );
     },
+    /**
+     * [on 事件绑定函数]
+     * @param  {[dom]}   elem     [dom对象]
+     * @param  {[string]}   event    [事件名]
+     * @param  {Function} callback [回调函数]
+     * @return {[object]}            [让off方法处理的参数]
+     */
+    on: function( elem, event, callback ) {
+        elem.addEventListener( event, callback, false );
+        return {
+            elem: elem,
+            event: event,
+            callback: callback
+        }
+    },
+    /**
+     * [one 事件绑定函数，只执行一次]
+     * @param  {[dom]}   elem     [dom对象]
+     * @param  {[string]}   event    [事件名]
+     * @param  {Function} callback [回调函数]
+     * @return {[object]}            [让off方法处理的参数]
+     */
+    one: function( elem, event, callback ) {
+        function listener() {
+            callback();
+            elem.removeEventListener( event, listener );
+        }
+        elem.addEventListener( event, listener, false );
+        return {
+            elem: elem,
+            event: event,
+            callback: listener
+        }
+    }, 
+
+    /**
+     * [off 解绑事件]
+     * @param  {[object]} opt [on或者one方法返回的参数]
+     * @return {[type]}     [none]
+     */
+    off: function( opt ) {
+        opt.elem.removeEventListener(opt.event, opt.callback);
+    }
     /**
      * [getClass 获取节点class]
      * @param  {[type]} elem [dom节点]
@@ -107,7 +154,7 @@ module.exports = {
 
         for( var property in options ) {
 
-            if( isObject( options[ property ] || isArray( target[ property ] ) ) ) {
+            if( isObject( options[ property ] || isArray( options[ property ] ) ) ) {
                 //如果属性是对象和对象则递归调用，防止直接赋值引用。
                 result[ property ] = extend( {}, options[ property ] );
             } else {
@@ -127,7 +174,7 @@ module.exports = {
      * @return {[type]}       [dom节点]
      */
     css: function( elem, style, value ) {
-        if( !isElement( elem ) ) return false;
+        if( !this.isElement( elem ) ) return false;
 
         if( !value ) {
             //两个参数读取参数
@@ -146,7 +193,7 @@ module.exports = {
      * @return {[type]}      [是否成功]
      */
     queue: function( func ) {
-        if( !isFunction( func ) ) return false;
+        if( !this.isFunction( func ) ) return false;
 
         setTimeout( function() {
             try{
@@ -172,7 +219,7 @@ module.exports = {
 
         return function( func, delay ) {
 
-            if( !isFunction( func ) ) return false;
+            if( !this.isFunction( func ) ) return false;
 
             var delay = delay || 200;
 
@@ -203,7 +250,7 @@ module.exports = {
         var timer = null;
         //这种方法虽然频繁设置和删除定时器，但是通过Profiles性能观测，性能没有太大影响。
         return function ( func, delay ) {
-            if( !isFunction( func ) ) return false;
+            if( !this.isFunction( func ) ) return false;
 
             var delay = delay || 200;
 
@@ -230,7 +277,7 @@ module.exports = {
 
     //是否是html对象
     isElement: function( obj ) {
-        return Object.prototype.toString.call(obj).indexOf('HTML') !== -1;
+        return Object.prototype.toString.call( obj ).indexOf('HTML') !== -1;
     },
 
     /**
